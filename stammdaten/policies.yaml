@@ -13,9 +13,12 @@ check_in_ort:
   status: bestaetigt
 
 hunde:
-  text: Grundsätzlich erlaubt, auf Anfrage, begrenzte Anzahl Zimmer, 20 € pro Nacht
+  text: Grundsätzlich erlaubt, auf Anfrage, 20 € pro Nacht und Hund (Hotel und Apartments gleich)
   nicht_erlaubt_in: ["01 Einzelzimmer Balkon"]
-  offen: Vollständige Liste je Kategorie (inkl. Apartments) liefert Benno
+  mehrere_hunde: möglich, auf Anfrage
+  hoechstzahl: keine feste Höchstzahl je Kategorie
+  kommunikation: Nach außen nur "Hunde auf Anfrage, 20 € pro Nacht" – mehrere Hunde und fehlende Höchstzahl nicht aktiv kommunizieren (Benno, 27.10.2026)
+  offen: Erlaubt/nicht erlaubt je Kategorie 02–09 liefert Benno mit den fertigen Zimmerstammdaten
   status: bestaetigt
 
 parken:
