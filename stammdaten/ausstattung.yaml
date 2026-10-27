@@ -33,7 +33,7 @@ gibt_es:
     status: bestaetigt
   e_ladestationen:
     text: 2 E-Ladestationen am Haus 12 / Parkplatz, kostenpflichtig, 10 € pauschal pro Ladung
-    wording: "E-Ladestationen" (nicht "Ladepunkte")
+    wording: 'E-Ladestationen (nicht "Ladepunkte")'
     status: bestaetigt
   gaestekarte:
     text: Gästekarte per E-Mail-Link beim Check-in (online Pre-Check-in möglich); kostenloser Bus im Tegernseer Tal
@@ -45,8 +45,9 @@ gibt_es:
     text: Aktiv- & Gesundheitstage am Tegernsee (AquaBiking/AquaJumping, Mobility, Massage)
     status: bestaetigt
   gymnastikraum:
-    text: geplant – ehemaliger Tagungsraum wird Fitness-/Gymnastikraum
-    status: offen
+    text: geplant – ehemaliger Tagungsraum wird Fitness-/Gymnastikraum, Fertigstellung 2027
+    kommunikation: noch nicht als vorhanden bewerben
+    status: bestaetigt
 
 gibt_es_nicht:
   - Restaurant oder Bar (nur Frühstück + Getränkeautomat)

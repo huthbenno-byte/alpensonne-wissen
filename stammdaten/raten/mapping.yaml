@@ -1,0 +1,80 @@
+# Raten-Mapping: je Ratenplan ibelsa-Name (exakt, inkl. "Appartment") → Kanäle
+# Quelle: Preis-Check-Entwicklerleitfaden (Stand 09.10.2026) und DIRS21-Anleitung NonRef (13.10.2026)
+# IDs nur zur Info – Tools suchen per Name
+# status: bestaetigt | website | offen | konflikt
+# Stand: 2026-10-27
+
+saisonlogik:
+  hotel: Rate je Nacht nach Saison (HS/NS, siehe hotel.yaml saisons_2027); Fr/Sa-Preise kommen aus ibelsa
+  apartments: LOS-Staffel ohne Saison – 1–2 Nächte "2 Nächte", 3–6 "ab 3 Nächte", ab 7 "ab 7 Nächte"
+
+nonref_vorlauf_tage: 60   # NonRef nur buchbar bei Anreise >= 60 Tage (Website geprüft 07.10.2026: 60, nicht 61)
+
+ratenplaene:
+  bar:   # Standard, flexibel – Website "Bester Preis" (Hotel) / "Appartment bis 7 Nächte"
+    hotel:
+      hauptsaison: { ibelsa: "Hotel - Hauptsaison Rate", id: 44307 }
+      nebensaison: { ibelsa: "Hotel - Nebensaison Rate", id: 44309 }
+    apartments:
+      "2_naechte": { ibelsa: "Appartment - Zimmerraten 2 Nächte", id: 46974 }
+      ab_3: { ibelsa: "Appartment - Zimmerraten ab 3 Nächte", id: 41799 }
+      ab_7: { ibelsa: "Appartment - Zimmerraten ab 7 Nächte", id: 43378 }
+    kanaele: [Website/IBE, Direkt]
+    status: bestaetigt
+
+  nonref:   # Direkt/Website, nicht stornierbar
+    hotel:
+      hauptsaison: { ibelsa: "Hotel - Hauptsaison NonRef Rate", id: 45136 }
+      nebensaison: { ibelsa: "Hotel - Nebensaison NonRef Rate", id: 45234 }
+    apartments:
+      "2_naechte": { ibelsa: "Appartment - Zimmerraten 2 Nächte NonRef Rate", id: 49711 }
+      ab_3: { ibelsa: "Appartment - ab 3 Nächte NonRef Rate", id: 49712 }
+      ab_7: { ibelsa: "Appartment - ab 7 Nächte NonRef Rate", id: 49713 }
+    pflege: Hotel-NonRef wird in DIRS21 gepflegt (Erweiterte Preiseingabe, Belegungsmatrix gültig bis 02.01.2028)
+    kanaele: [Website/IBE, Direkt]
+    status: bestaetigt
+
+  ota:   # flexibel, Soll-Preis vor Genius-/Mitgliederrabatt (meist 10 %, je Kategorie 10–15 %)
+    hotel:
+      hauptsaison: { ibelsa: "Hotel - OTA Hauptsaison Rate", id: 49707 }
+      nebensaison: { ibelsa: "Hotel - OTA Nebensaison Rate", id: 43379 }
+    apartments:
+      "2_naechte": { ibelsa: "Appartment - OTA Zimmerraten 2 Nächte", id: 49723 }
+      ab_3: { ibelsa: "Appartment - OTA Zimmerraten ab 3 Nächte", id: 49724 }
+      ab_7: { ibelsa: "Appartment - OTA Zimmerraten ab 7 Nächte", id: 49725 }
+    kanaele: [Booking.com, Expedia, Check24, Travel Circus (nur Hotel), Airbnb (nur 07/08), HolidayCheck, Google Hotels]
+    status: bestaetigt
+
+  ota_nonref:
+    hotel:
+      hauptsaison: { ibelsa: "Hotel - OTA Hauptsaison NonRef Rate", id: 49708 }
+      nebensaison: { ibelsa: "Hotel - OTA Nebensaison NonRef Rate", id: 49705 }
+    apartments: offen   # Ratenmatrix führt Preise (−5 %), in ibelsa nicht angelegt
+    status: offen
+
+  sonderraten:   # nicht in ibelsa-Preislogik der Tools
+    raten:
+    - ASI (Import Mo + Do per CSV)
+    - Feuer & Eis
+    - Getaway Group
+    - DERTOUR
+    status: offen   # Details/Konditionen folgen mit der Ratenmatrix
+
+  intern_ignorieren:
+    - "Hotel INTERN Family & Friends Rate"
+    - "Apartment INTERN Family & Friends Rate"
+    - "VERFÜGBARKEITSRATE für DIRS21"
+
+kanal_ids:   # öffentliche Listing-IDs, keine Zugangsdaten
+  dirs21_channel_hotel: 5714bbcf-826f-cfff-dae4-b54a32ac641c
+  dirs21_channel_apartments: ba3594ae-defc-10dc-e639-dbf2874d6837
+  expedia_hotel: h4022061
+  expedia_apartments: h136020885
+  check24_hotel: "-8216262"
+  check24_apartments: "-37602972"
+  airbnb_07: "1208431013959237068"
+  airbnb_08: "1208770231063887615"
+
+promo:
+  text: Apartments −14 % auf Standard und NonRef (Website, Stand 06.10.2026)
+  status: offen   # Laufzeit klären
