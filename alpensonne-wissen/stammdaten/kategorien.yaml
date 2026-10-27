@@ -1,0 +1,107 @@
+# Zimmer- und Apartmentkategorien – Alpensonne Tegernsee
+# Eine Kategorie = ein Eintrag. Codes entsprechen den ibelsa-Kategorienamen.
+# status: bestaetigt = von Benno bestätigt | website = von der Website übernommen, noch nicht bestätigt | konflikt = Quellen widersprechen sich
+# Stand: 2026-10-27
+# hunde: erlaubt/nicht erlaubt je Kategorie liefert Benno in der Stammdatenliste nach
+
+hotel:
+  - code: "01"
+    name: Einzelzimmer Balkon
+    groesse_m2: [13, 17]
+    max_personen: 1
+    bad: Kleines Bad mit Dusche/WC
+    balkon: Balkon oder Terrasse
+    merkmale: [Haartrockner, Flat-TV mit Sat-Empfang, WLAN]
+    hunde: nein   # bewusst: in dieser Kategorie keine Hunde (Benno, 27.10.2026)
+    status: website
+
+  - code: "02"
+    name: Doppelzimmer Mini
+    groesse_m2: [13, 17]
+    max_personen: 2
+    bad: Kleines Bad mit Dusche/WC
+    balkon: nein
+    merkmale: [Haartrockner, Schreibtisch, Flat-TV mit Sat-Empfang, WLAN]
+    zielgruppe: Ideal für Einzelpersonen; zu zweit eng, v. a. bei längerem Aufenthalt (bewusst so kommuniziert)
+    status: website
+
+  - code: "03"
+    name: Doppelzimmer
+    groesse_m2: [17, 21]
+    max_personen: 2
+    bad: Kleines Bad mit Dusche/WC
+    balkon: nein
+    merkmale: [Haartrockner, Schreibtisch oder Sitzecke, Flat-TV mit Sat-Empfang, WLAN]
+    status: website
+
+  - code: "04"
+    name: Doppelzimmer Balkon
+    groesse_m2: [20, 30]
+    max_personen: 3   # bestätigt 27.10.2026
+    bad: Kleines Bad mit Dusche/WC
+    balkon: ja
+    merkmale: [Haartrockner, Schreibtisch oder Sitzecke, Flat-TV mit Sat-Empfang, WLAN]
+    zielgruppe: Paare & Familien
+    status: website
+
+  - code: "05"
+    name: Junior Apartment
+    groesse_m2: [50, 55]
+    max_personen: 3   # bestätigt 27.10.2026; Website-Detailtext (4) ist falsch
+    bad: Bad mit Regendusche/WC
+    balkon: überdacht
+    kueche: Kitchenette (Kühlschrank, Backofen, Spülmaschine)
+    merkmale: [Parkett, Fußbodenheizung, 2x Flat-TV (Wohn- und Schlafbereich), Wäschewechsel am 4. Tag]
+    status: website
+
+  - code: "06"
+    name: Apartment
+    groesse_m2: [60, 65]
+    max_personen: 4
+    bad: Bad mit Regendusche/WC
+    balkon: überdacht
+    kueche: Kitchenette (Kühlschrank, Backofen, Spülmaschine)
+    merkmale: [Parkett, Fußbodenheizung, 2x Flat-TV (Wohn- und Schlafbereich), Wäschewechsel am 4. Tag]
+    status: website
+
+apartments:   # Alpensonne Apartments, Haus A (Ludwig-Thoma-Str. 7a) und Haus B (7b), eröffnet 2026
+  - code: "07"
+    name: 1-Zimmer-Apartment
+    ibelsa_name: "07 Apartment 1 Zimmer"
+    groesse_m2: 65
+    max_personen: 2
+    bad: Bad mit Regendusche/WC
+    balkon: überdacht
+    kueche: Komplette Küche (Kühlschrank, Backofen, Spülmaschine)
+    aussicht: Bergblick oder Seeblick
+    merkmale: [Parkett, Fußbodenheizung, 2x Flat-TV, Tiefgaragenplatz inklusive]
+    kanaele_einschraenkung: auf Airbnb angeboten
+    hinweis: Website-Karte nennt fälschlich "Maisonette" als Merkmal (bestätigt falsch)
+    status: website
+
+  - code: "08"
+    name: 1-Zimmer-Maisonette
+    ibelsa_name: "08 Apartment 1 Zimmer Maisonette"
+    groesse_m2: 73
+    max_personen: 4
+    bad: Bad mit Regendusche/WC
+    balkon: überdacht
+    kueche: Komplette Küche (Kühlschrank, Backofen, Spülmaschine)
+    aussicht: Bergblick oder Seeblick
+    merkmale: [Maisonette, Parkett, Fußbodenheizung, 2x Flat-TV, Tiefgaragenplatz inklusive]
+    kanaele_einschraenkung: auf Airbnb angeboten
+    status: website
+
+  - code: "09"
+    name: 2-Zimmer-Apartment
+    ibelsa_name: "09 Apartment 2 Zimmer"
+    groesse_m2: 90
+    max_personen: offen   # abhängig von der Belegung; Benno klärt intern (Startseite "2–6 Personen" ist falsch)
+    schlafzimmer: 2
+    bad: Bad mit Regendusche/WC
+    balkon: überdacht
+    kueche: Komplette Küche (Kühlschrank, Backofen, Spülmaschine)
+    aussicht: Bergblick oder Seeblick
+    merkmale: [Parkett, Fußbodenheizung, 2x Flat-TV, Tiefgaragenplatz inklusive]
+    kanaele_einschraenkung: nicht auf Airbnb
+    status: website

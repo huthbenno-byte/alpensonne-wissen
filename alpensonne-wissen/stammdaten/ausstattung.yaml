@@ -1,0 +1,66 @@
+# Ausstattung & Services – was es gibt und was es NICHT gibt
+# Quelle für COM25-Wissensbasis, MARA, OTA-Texte, Website, Schema.org
+# status: bestaetigt | website | offen | konflikt
+# Stand: 2026-10-27
+
+gibt_es:
+  fruehstueck:
+    text: Frühstücksbuffet täglich 07:00–10:30 Uhr
+    status: website
+  lunchpakete:
+    text: Lunchpakete erhältlich
+    status: bestaetigt
+  getraenke:
+    text: Getränkeautomat in Haus 14, Erdgeschoss (Bar- und Kartenzahlung); Heißgetränke an der Rezeption
+    status: website
+  wlan:
+    text: WLAN im ganzen Hotel inkl. Zimmer, kostenlos
+    status: bestaetigt
+  alpenspa:
+    pool: Innenpool 12 x 6 m, täglich 07:00–20:00 Uhr
+    sauna: Mühlradl-Sauna 85 °C, Bio-Kräutersauna 65 °C, täglich 14:00–20:00 Uhr, textilfrei
+    ruhe: Ruheraum "Birkenwald", Freiluftterrasse mit Liegen, Relaxlounge, Wasserbrunnen und Teeecke
+    kinder: bis 16 Jahre nur in Begleitung eines Erwachsenen
+    status: website
+  massagen:
+    text: Massagen durch Heilpraktikerin Natascha (klassisch, Aromaöl, Sport, Lomi Lomi Nui, Masuna, Baby/Kind); Termine an der Rezeption oder direkt
+    status: website
+  bademantel:
+    text: Bademantel gegen 10 € pro Aufenthalt; Wellnesshandtücher im Zimmer
+    status: website
+  babybett_zustellbett:
+    text: Babybetten und Zustellbetten verfügbar
+    status: bestaetigt
+  e_ladestationen:
+    text: 2 E-Ladestationen am Haus 12 / Parkplatz, kostenpflichtig, 10 € pauschal pro Ladung
+    wording: "E-Ladestationen" (nicht "Ladepunkte")
+    status: bestaetigt
+  gaestekarte:
+    text: Gästekarte per E-Mail-Link beim Check-in (online Pre-Check-in möglich); kostenloser Bus im Tegernseer Tal
+    status: website
+  zimmerkarte:
+    text: Ersatz-Zimmerkarte am Automaten vor dem Haupteingang Haus 14
+    status: website
+  aktivprogramm:
+    text: Aktiv- & Gesundheitstage am Tegernsee (AquaBiking/AquaJumping, Mobility, Massage)
+    status: bestaetigt
+  gymnastikraum:
+    text: geplant – ehemaliger Tagungsraum wird Fitness-/Gymnastikraum
+    status: offen
+
+gibt_es_nicht:
+  - Restaurant oder Bar (nur Frühstück + Getränkeautomat)
+  - Solarium
+  - Beauty-Behandlungen
+  - Flughafentransfer
+  - Autovermietung
+  - Im Haus: Casino, Friseur/Beautysalon, Minimarkt/Kiosk, Geldautomat (alles im Ort)
+
+einordnung:
+  hoteltyp: Wellnesshotel
+  kein: [Stadthotel, Apartment-Hotel]
+  status: bestaetigt
+
+wording:
+  - Immer "Apartment"/"Apartments", nie "Ferienwohnung"
+  - Gastgeber ist die Familie Huth

@@ -1,0 +1,33 @@
+# Basisdaten – Alpensonne Tegernsee (Hotel und Apartments)
+# Stand: 2026-10-27
+
+name_offiziell: Alpensonne Tegernsee (Hotel und Apartments)
+name_nicht_verwenden: Vital Hotel Alpensonne
+name_holidaycheck: Hotel Alpensonne Tegernsee
+betreiber: Hotelplan GmbH (Familienbetrieb, Familie Huth)
+ort: Bad Wiessee am Tegernsee
+
+haeuser:
+  hotel:
+    adresse: Freihausstraße 12–14, 83707 Bad Wiessee
+    zimmer: 51
+    kategorien: ["01", "02", "03", "04", "05", "06"]
+    hinweis: Haus 12 = Parkplatz/E-Laden, Haus 14 = Haupteingang, Getränkeautomat, Kartenautomat
+  apartments:
+    haus_a: Ludwig-Thoma-Straße 7a
+    haus_b: Ludwig-Thoma-Straße 7b
+    einheiten: 24
+    kategorien: ["07", "08", "09"]
+    eroeffnet: April 2026
+    lage: Ortsmitte Bad Wiessee, ca. 200 m zur Uferpromenade
+
+kontakt:
+  email: info@die-alpensonne.de
+  telefon: "+49 8022 50937-0"
+  website: https://alpensonnetegernsee.de
+  zweite_domain: hotelalpensonne.de   # Entitäts-Verwechslung für KI-Sichtbarkeit, Umgang klären
+
+saisons_2027:
+  nebensaison: ["04.01.–25.03.", "01.11.–24.12."]
+  hauptsaison: ["26.03.–31.10.", "25.12.–03.01.2028"]
+  gilt_fuer: Hotel (Apartments ganzjährig ohne Saisontrennung)

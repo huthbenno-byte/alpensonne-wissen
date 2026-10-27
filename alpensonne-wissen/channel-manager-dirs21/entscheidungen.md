@@ -1,0 +1,4 @@
+# Entscheidungen
+
+| Datum | Entscheidung | Begründung |
+|---|---|---|

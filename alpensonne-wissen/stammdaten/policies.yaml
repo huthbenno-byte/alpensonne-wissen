@@ -1,0 +1,64 @@
+# Hausregeln, Zeiten, Preise für Zusatzleistungen
+# status: bestaetigt | website | offen | konflikt
+# Stand: 2026-10-27
+
+zeiten:
+  check_in: "ab 15:00"
+  check_out: "bis 11:00"
+  rezeption: "07:00–20:00, danach telefonischer Notdienst"
+  status: website
+
+check_in_ort:
+  text: Auch Apartmentgäste checken an der Hotelrezeption ein (Freihausstraße 12–14)
+  status: bestaetigt
+
+hunde:
+  text: Grundsätzlich erlaubt, auf Anfrage, begrenzte Anzahl Zimmer, 20 € pro Nacht
+  nicht_erlaubt_in: ["01 Einzelzimmer Balkon"]
+  offen: Vollständige Liste je Kategorie (inkl. Apartments) liefert Benno
+  status: bestaetigt
+
+parken:
+  hotel:
+    text: Parkplatz am Haus 12 kostenlos; Tiefgaragenplatz nach Verfügbarkeit 10 € pro Tag
+    status: website
+  apartments:
+    text: Tiefgaragenplatz im Preis inklusive; Einfahrt nur mit vorab registriertem Kennzeichen (Erfassung beim Check-in)
+    einfahrt: Münchner Straße
+    status: bestaetigt
+  alpenueberquerung:
+    text: Gesonderte Parkplätze außerhalb des Hotels
+    status: website
+
+kinder_zusatzpersonen:   # gilt gleich für Hotel und Apartments
+  regel: Aufpreise erst ab der 3. Person
+  zusatzperson_erwachsen: 50 € pro Nacht
+  kinder_zustellbett: { "0-2": 5, "3-5": 20, "6-15": 35 }   # € pro Nacht, Alter in Jahren
+  status: bestaetigt
+
+stornobedingungen:   # laut AGB; gilt für alle flexiblen Raten (BAR), auf allen Kanälen gleich
+  regel_saison_hotel: Hauptsaison beginnt jedes Jahr zu Ostern (Freitag vor Ostersonntag) – AGB jährlich anpassen, deckungsgleich mit Preis-Saisons
+  apartments:
+    regel: ganzjährig kostenfrei bis 7 Tage vor Anreise, danach 90 % (keine Saisontrennung)
+  hotel_hauptsaison:
+    zeitraum: ["26.03.–31.10.", "25.12.–03.01."]   # 2027
+    kostenfrei_bis: 7 Tage vor Anreise
+    danach: 90 % des Übernachtungspreises (ab 6 Tage vor Anreise bis Anreise)
+  hotel_nebensaison:
+    zeitraum: ["04.01.–25.03.", "01.11.–24.12."]   # 2027
+    kostenfrei_bis: 3 Tage vor Anreise
+    danach: 90 % des Übernachtungspreises (ab 2 Tage vor Anreise bis Anreise)
+  nonref: Nicht stornierbar; buchbar nur ab 60 Tage vor Anreise
+  status: bestaetigt
+
+mindestaufenthalt:
+  hotel_website: 3 Nächte ab Mai 2027
+  apartments: 3 Nächte (Basis der Preisstaffel 2/3/7 Nächte – Klärung, ob 2 Nächte buchbar)
+  status: offen
+
+kurtaxe:   # pro Person und Nacht, wird vor Ort im Hotel bezahlt
+  "0-5_jahre": 0.00     # ibelsa-Artikel Kur5
+  "6-15_jahre": 1.50    # Kur15
+  "ab_16_jahre": 3.00   # Kur16
+  ota_ausweis: nein   # wird bei Booking.com & Co. nicht ausgewiesen
+  status: bestaetigt
