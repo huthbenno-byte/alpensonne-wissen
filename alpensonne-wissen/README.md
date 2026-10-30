@@ -17,7 +17,7 @@ Stammdaten sind die eine Wahrheit. ibelsa, DIRS21, Kanäle, COM25, MARA und die 
 | tools/ | Verweise auf die App-Repos (Reporting, Ankünfte, Preis-Check, Mahnwesen) |
 | web/ | Websites, Landingpages, KI-Sichtbarkeit |
 | finanzen/ | Budget, Steuerbüro, Archiv |
-| betrieb/ | SALTO, IT, Housekeeping, Bauprojekte |
+| betrieb/ | SALTO, IT, Housekeeping, Bauprojekte, Personal-/Organisationskonzepte |
 | logbuch/ | Monatliches Änderungsprotokoll |
 | _vorlage/ | Bauplan für neue Module |
 
