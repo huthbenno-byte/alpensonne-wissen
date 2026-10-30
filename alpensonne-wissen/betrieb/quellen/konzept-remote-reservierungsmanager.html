@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Reservierung remote – Konzept</title>
+<style>
+@page { size: A4; margin: 0; }
+:root{
+  --navy:#16324a; --petrol:#1f5f73; --sky:#e8f1f5; --sun:#f2a530; --sunsoft:#fdf1dc;
+  --ink:#1d2730; --muted:#5f6d78; --line:#d9e2e8; --green:#2f7d5b; --greensoft:#e4f2ea;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);font-size:9.6pt;line-height:1.45;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;padding:18mm 17mm 16mm;position:relative;page-break-after:always;overflow:hidden}
+.page:last-child{page-break-after:auto}
+h1,h2,h3{font-family:"Inter Display",Inter,sans-serif;color:var(--navy);line-height:1.15}
+h2{font-size:21pt;font-weight:700;margin-bottom:4mm}
+h3{font-size:11.5pt;font-weight:650;margin:5mm 0 2mm}
+.kicker{font-size:8pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sun);margin-bottom:1.5mm}
+.lead{font-size:11pt;color:var(--muted);margin-bottom:5mm;max-width:160mm}
+p{margin-bottom:2.5mm}
+strong{font-weight:650}
+.foot{position:absolute;bottom:8mm;left:17mm;right:17mm;display:flex;justify-content:space-between;font-size:7.5pt;color:var(--muted);border-top:1px solid var(--line);padding-top:2.5mm}
+table.tight td{padding:1.4mm 2.5mm}
+table{width:100%;border-collapse:collapse;font-size:8.8pt;margin-bottom:3mm}
+th{text-align:left;font-weight:600;color:var(--navy);background:var(--sky);padding:2mm 2.5mm;border-bottom:1.5px solid var(--petrol)}
+td{padding:2mm 2.5mm;border-bottom:1px solid var(--line);vertical-align:top}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4mm}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:3.5mm}
+.card{border:1px solid var(--line);border-radius:3mm;padding:4mm;background:#fff}
+.card.sky{background:var(--sky);border-color:transparent}
+.card.sun{background:var(--sunsoft);border-color:transparent}
+.card.green{background:var(--greensoft);border-color:transparent}
+.card.navy{background:var(--navy);color:#fff;border-color:transparent}
+.card.navy h3{color:#fff;margin-top:0}
+.card h3{margin-top:0}
+ul{padding-left:4.5mm;margin-bottom:2mm}
+li{margin-bottom:1.2mm}
+.stat .num{font-family:"Inter Display";font-size:22pt;font-weight:700;color:var(--petrol);line-height:1}
+.stat .lbl{font-size:8.3pt;color:var(--muted);margin-top:1.5mm}
+.callout{border-left:4px solid var(--sun);background:var(--sunsoft);padding:3.5mm 4.5mm;border-radius:0 2mm 2mm 0;margin:3mm 0 4mm}
+.callout.green{border-color:var(--green);background:var(--greensoft)}
+.tag{display:inline-block;font-size:7.5pt;font-weight:600;padding:.6mm 2mm;border-radius:5mm;background:var(--sky);color:var(--petrol)}
+.tag.sun{background:var(--sunsoft);color:#a8670c}
+/* Cover */
+.cover{padding:0;background:linear-gradient(180deg,#0f2a40 0%,#1f5f73 62%,#e8f1f5 62%)}
+.cover .inner{padding:30mm 20mm 0;color:#fff}
+.cover .kicker{color:var(--sun);font-size:9pt}
+.cover h1{color:#fff;font-size:42pt;font-weight:750;letter-spacing:-.01em;margin:4mm 0 5mm}
+.cover .sub{font-size:14pt;color:#d6e6ee;max-width:150mm;line-height:1.4}
+.cover svg{position:absolute;left:0;top:118mm;width:210mm}
+.cover .meta{position:absolute;left:20mm;right:20mm;bottom:22mm;display:flex;justify-content:space-between;align-items:flex-end;color:var(--navy)}
+.cover .meta .house{font-family:"Inter Display";font-size:15pt;font-weight:700}
+.cover .meta .small{font-size:9pt;color:var(--muted);margin-top:1mm}
+.cover .badge{background:var(--sun);color:#3b2604;font-weight:650;font-size:9pt;padding:2mm 4mm;border-radius:5mm}
+/* split remote/vor Ort */
+.side h3{display:flex;align-items:center;gap:2mm}
+.dot{width:3mm;height:3mm;border-radius:50%;display:inline-block}
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(5,1fr);gap:2.5mm;margin:3mm 0 4mm}
+.tl .step{border-top:4px solid var(--petrol);background:var(--sky);border-radius:0 0 2mm 2mm;padding:3mm}
+.tl .step.opt{border-color:var(--sun);background:var(--sunsoft)}
+.tl .wk{font-size:7.5pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--petrol)}
+.tl .step.opt .wk{color:#a8670c}
+.tl .t{font-weight:650;color:var(--navy);margin:1mm 0 1.2mm;font-size:9.5pt}
+.tl .d{font-size:8.2pt;color:var(--ink)}
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:2mm;margin:3mm 0 4mm}
+.flow .f{background:#fff;border:1px solid var(--line);border-radius:2.5mm;padding:2.8mm;position:relative}
+.flow .n{width:6mm;height:6mm;border-radius:50%;background:var(--navy);color:#fff;font-size:8pt;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:1.5mm}
+.flow .t{font-weight:650;color:var(--navy);font-size:9pt}
+.flow .d{font-size:7.8pt;color:var(--muted);margin:1mm 0 1.8mm}
+.flow .c{font-size:7.5pt;background:var(--greensoft);color:var(--green);border-radius:1.5mm;padding:1mm 1.5mm;font-weight:600}
+/* meetings */
+.mt .day{font-family:"Inter Display";font-size:16pt;font-weight:700;color:var(--petrol)}
+.mt .focus{font-size:8.3pt;color:var(--muted);margin-bottom:2.5mm}
+.mt ol{padding-left:4.5mm;font-size:8.8pt}
+.mt li{margin-bottom:1.5mm}
+.mt .min{color:var(--muted);font-size:7.8pt}
+/* dashboard mock */
+.dash{border:1px solid var(--line);border-radius:3mm;padding:4mm;background:#fbfdfe}
+.dash .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:3mm}
+.dash .hd b{color:var(--navy);font-size:10pt}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:2mm;padding:2.8mm}
+.kpi .v{font-family:"Inter Display";font-size:16pt;font-weight:700;color:var(--navy)}
+.kpi .l{font-size:7.6pt;color:var(--muted)}
+.kpi .s{font-size:7.4pt;font-weight:600;margin-top:1mm}
+.ok{color:var(--green)} .warn{color:#b8730d}
+.bars{display:flex;align-items:flex-end;gap:2mm;height:20mm;margin-top:2mm}
+.bars div{flex:1;background:var(--petrol);border-radius:1mm 1mm 0 0;opacity:.85}
+.bars div.hi{background:var(--sun)}
+/* concerns */
+.qa td:first-child{width:36%;font-weight:600;color:var(--navy)}
+.qa td:first-child em{font-style:normal;color:var(--sun);font-size:11pt;margin-right:1mm}
+/* stufen */
+.stufen{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:2mm}
+.stufen .s{padding:3mm;border-right:1px solid #fff}
+.stufen .s:nth-child(1){background:#d5e7ee}
+.stufen .s:nth-child(2){background:#b9d7e2}
+.stufen .s:nth-child(3){background:#8fbfcf}
+.stufen .s:nth-child(4){background:var(--navy);color:#fff}
+.stufen .s b{display:block;font-size:9pt;margin-bottom:1mm}
+.stufen .s .w{font-size:7.5pt;opacity:.8;margin-bottom:1.5mm}
+.stufen .s div{font-size:8.1pt}
+/* salary */
+.sal .num{font-family:"Inter Display";font-size:20pt;font-weight:700;color:var(--navy)}
+.sal .range{font-size:8.5pt;color:var(--muted)}
+.gauge{height:3mm;border-radius:2mm;background:linear-gradient(90deg,#d5e7ee,#8fbfcf,var(--petrol));position:relative;margin:7mm 0 2mm}
+.gauge .mk{position:absolute;top:-5mm;transform:translateX(-50%);font-size:7pt;color:var(--muted);white-space:nowrap}
+.gauge .mk::after{content:"";display:block;width:2px;height:6mm;background:var(--navy);margin:0.6mm auto 0}
+.gauge .mk.us{color:#a8670c;font-weight:700}
+.gauge .mk.us::after{background:var(--sun);width:3px}
+/* zeitplan */
+.zp{display:grid;grid-template-columns:repeat(6,1fr);gap:2mm}
+.zp .z{border-left:3px solid var(--petrol);padding:1mm 0 1mm 2.5mm}
+.zp .z b{display:block;color:var(--navy);font-size:8.6pt}
+.zp .z span{font-size:8pt;color:var(--muted)}
+.check li{list-style:none;position:relative;padding-left:5mm}
+.check li::before{content:"";position:absolute;left:0;top:1.2mm;width:2.8mm;height:2.8mm;border:1.4px solid var(--petrol);border-radius:.8mm}
+.check li.done::before{background:var(--green);border-color:var(--green)}
+</style>
+</head>
+<body>
+
+<!-- 1 COVER -->
+<section class="page cover">
+  <div class="inner">
+    <div class="kicker">Konzept · Rezeption &amp; Reservierung</div>
+    <h1>Reservierung<br>remote</h1>
+    <div class="sub">Wie wir einen Reservierungsmanager (m/w/d) deutschlandweit finden, eng ans Haus binden und die Arbeit transparent steuern.</div>
+  </div>
+  <svg viewBox="0 0 210 70" preserveAspectRatio="none" aria-hidden="true">
+    <circle cx="152" cy="22" r="13" fill="#f2a530"/>
+    <circle cx="152" cy="22" r="19" fill="#f2a530" opacity=".18"/>
+    <path d="M0 62 L28 34 L44 46 L70 16 L96 44 L112 32 L140 58 L162 38 L186 52 L210 30 L210 70 L0 70Z" fill="#2c7187"/>
+    <path d="M62 24 L70 16 L78 25 L73 23 L70 26 L66 22Z" fill="#fff" opacity=".9"/>
+    <path d="M0 70 L0 56 L22 46 L48 58 L78 40 L104 56 L132 46 L160 60 L190 48 L210 56 L210 70Z" fill="#16324a"/>
+    <rect x="0" y="66" width="210" height="4" fill="#e8f1f5"/>
+  </svg>
+  <div class="meta">
+    <div>
+      <div class="house">Alpensonne Tegernsee</div>
+      <div class="small">Hotel (51 Zimmer) &amp; Apartments (24 Einheiten) · Bad Wiessee</div>
+      <div class="small">Für Katja, Papa und Benno · Entwurf, Stand 30.10.2026</div>
+    </div>
+    <div class="badge">Pilot · 6 Monate</div>
+  </div>
+</section>
+
+<!-- 2 AUF EINEN BLICK -->
+<section class="page">
+  <div class="kicker">01 · Auf einen Blick</div>
+  <h2>Die Idee in drei Sätzen</h2>
+  <p class="lead">Am Tegernsee finden wir keinen guten Reservierungsmanager. Die Reservierung ist aber die eine Aufgabe an der Rezeption, die nicht vor Ort sitzen muss. Also suchen wir deutschlandweit, binden die Person eng ans Haus an und steuern über einen festen Takt und klare Zahlen.</p>
+
+  <div class="callout green"><strong>Die Rezeption bleibt besetzt.</strong> Check-in, Check-out, Kurtaxe, Schlüssel und der persönliche Kontakt im Haus bleiben wie heute von 07:00 bis 20:00 Uhr am Tegernsee. Remote läuft nur die Reservierung: Mails, Telefon, Angebote, ibelsa.</div>
+
+  <div class="grid4" style="margin:5mm 0 6mm">
+    <div class="card stat"><div class="num">4–6</div><div class="lbl">Wochen Einarbeitung im Haus, Unterkunft stellen wir</div></div>
+    <div class="card stat"><div class="num">1×</div><div class="lbl">pro Monat 2–3 Tage vor Ort, mit Schicht und Zimmer-Rundgang</div></div>
+    <div class="card stat"><div class="num">3×</div><div class="lbl">pro Woche 15-Minuten-Call: Mo, Mi, Fr</div></div>
+    <div class="card stat"><div class="num">3 + 6</div><div class="lbl">Monate: zwei feste Bewertungspunkte, Ausstieg jederzeit möglich</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card sky">
+      <h3>Heute</h3>
+      <ul>
+        <li>Katja und Sandra machen die Reservierung <strong>nebenbei</strong></li>
+        <li>ca. <strong>30–60 Anfragen pro Woche</strong>, überwiegend per E-Mail über info@</li>
+        <li>COM25 unterstützt bei Antworten und wird gerade ausgebaut</li>
+        <li>Die Stelle ist lokal seit langem nicht gut besetzbar</li>
+      </ul>
+    </div>
+    <div class="card sun">
+      <h3>Mit Reservierung remote</h3>
+      <ul>
+        <li>Eine Person kümmert sich <strong>voll</strong> um Anfragen, Angebote, Nachfassen</li>
+        <li>Katja und Sandra gewinnen <strong>Zeit</strong> für Gäste, Team und Steuerung</li>
+        <li>Schnellere Antworten, mehr Direktbuchungen, weniger OTA-Provision</li>
+        <li>Wissen über das Haus wird endlich dokumentiert</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Warum remote funktioniert</h3>
+  <table>
+    <tr><th>Problem heute</th><th>Was remote ändert</th></tr>
+    <tr><td>Kaum Bewerber rund um Tegernsee und Miesbach, viele Hotels kämpfen um dieselben Leute</td><td>Suchradius ganz Deutschland, gezielt auch Regionen mit mehr Fachkräften: Sachsen, Brandenburg, Thüringen, Sachsen-Anhalt, Ruhrgebiet</td></tr>
+    <tr><td>Wohnraum am See teuer oder nicht verfügbar</td><td>Die Person wohnt, wo sie lebt. Wir stellen nur Unterkunft für Einarbeitung und Präsenztage</td></tr>
+    <tr><td>Erfahrene Hotelfachkräfte haben die Branche wegen Schichtdienst verlassen</td><td>Planbare Arbeitszeit Mo–Fr im Homeoffice holt genau diese Leute zurück</td></tr>
+    <tr><td>Unbesetzte Stelle: Anfragen bleiben liegen, Umsatz geht an Booking &amp; Co.</td><td>Besetzte Stelle, schnelle Antworten, mehr Direktbuchungen</td></tr>
+  </table>
+  <div class="foot"><span>Alpensonne Tegernsee · Konzept Reservierung remote</span><span>2</span></div>
+</section>
+
+<!-- 3 AUFGABEN & ARBEITSMODELL -->
+<section class="page">
+  <div class="kicker">02 · Aufgaben &amp; Arbeitsmodell</div>
+  <h2>Was remote läuft – und was im Haus bleibt</h2>
+  <p class="lead">Klare Trennung: Alles, was am Bildschirm und am Telefon passiert, kann remote laufen. Alles, wo der Gast vor uns steht, bleibt im Haus.</p>
+  <div class="grid2 side">
+    <div class="card sky">
+      <h3><span class="dot" style="background:var(--petrol)"></span>Remote · Reservierungsmanager</h3>
+      <ul>
+        <li>Anfragen per Mail, Telefon und Website beantworten</li>
+        <li>Angebote schreiben, Optionen setzen, nachfassen</li>
+        <li>Reservierungen in ibelsa anlegen, ändern, stornieren</li>
+        <li>Sonderwünsche: Hunde, Zustellbetten, Zimmerwünsche</li>
+        <li>Gruppen- und Langzeitanfragen vorbereiten</li>
+        <li>Anzahlungen anfordern und überwachen</li>
+        <li>OTA-Buchungen prüfen (Kommentare, Zahlungen)</li>
+        <li>Zimmerzuteilung vorplanen</li>
+        <li>COM25-Antwortentwürfe prüfen, ergänzen, freigeben</li>
+        <li>Übergabe-Notizen für die Rezeption</li>
+      </ul>
+    </div>
+    <div class="card sun">
+      <h3><span class="dot" style="background:var(--sun)"></span>Vor Ort · Rezeption Tegernsee</h3>
+      <ul>
+        <li>Check-in und Check-out, Begrüßung, Betreuung im Haus</li>
+        <li>Kasse, Kurtaxe, Zahlungen vor Ort</li>
+        <li>Schlüssel, SALTO, Kennzeichen für die Tiefgarage</li>
+        <li>Beschwerden und Probleme im Haus</li>
+        <li>Massagetermine und Auskünfte vor Ort</li>
+        <li>Abstimmung mit Housekeeping und Technik</li>
+        <li>Kurzfristige Zimmerwechsel am Anreisetag</li>
+        <li>Wochenende wie heute</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout"><strong>Goldene Übergaberegel:</strong> Alles, was die Rezeption wissen muss, steht in ibelsa an der Reservierung – nicht in privaten Mails oder Chats. Für Kurzfristiges gibt es einen Team-Chat „Reservierung ↔ Rezeption“. <strong>Was am selben Tag im Haus passiert, entscheidet das Haus.</strong></div>
+
+  <h3>Arbeitsmodell</h3>
+  <table class="tight">
+    <tr><th style="width:28%">Punkt</th><th>Vorschlag</th></tr>
+    <tr><td>Umfang</td><td>Vollzeit (40 h) oder Teilzeit 30 h (6 h × 5 Tage) – beides ausschreiben, nach Bewerber entscheiden</td></tr>
+    <tr><td>Arbeitstage</td><td>Montag bis Freitag. Das Wochenende übernimmt die Rezeption vor Ort wie heute. Ob es eine Notfall-Erreichbarkeit geben soll, legen wir noch fest</td></tr>
+    <tr><td>Kernzeit</td><td>Teilzeit 09:00–15:00 · Vollzeit 08:30–17:00 – deckt die Telefon- und Anfragespitzen ab</td></tr>
+    <tr><td>Arbeitsort</td><td>Fester, ruhiger Arbeitsplatz zu Hause in Deutschland. Keine Gästedaten in Cafés oder im Zug</td></tr>
+    <tr><td>Zeiterfassung</td><td>Digital (gesetzlich ohnehin Pflicht)</td></tr>
+    <tr><td>Pate vor Ort</td><td><strong>Sandra</strong> – erste Ansprechpartnerin im Alltag, begleitet die Einarbeitung</td></tr>
+    <tr><td>Vertretung</td><td>Bei Urlaub oder Krankheit übernehmen Katja und Sandra wie heute</td></tr>
+  </table>
+  <div class="foot"><span>Alpensonne Tegernsee · Konzept Reservierung remote</span><span>3</span></div>
+</section>
+
+<!-- 4 EINARBEITUNG & PRÄSENZ -->
+<section class="page">
+  <div class="kicker">03 · Einarbeitung &amp; Präsenz</div>
+  <h2>Erst das Haus kennen, dann remote</h2>
+  <p class="lead">Niemand arbeitet remote, der das Haus nicht kennt. 4–6 Wochen vor Ort, ausgebildet von Katja und Sandra. Start in der Nebensaison (Januar/Februar 2027): Das Zimmer kostet uns kaum etwas, und das Team hat Zeit.</p>
+
+  <div class="tl">
+    <div class="step"><div class="wk">Woche 1</div><div class="t">Haus kennenlernen</div><div class="d">Alle Kategorien 01–09 begehen, jedes Zimmer sehen: Lage, Ausblick, Lärm, Besonderheiten. Team kennenlernen, an der Rezeption mitlaufen.</div></div>
+    <div class="step"><div class="wk">Woche 2</div><div class="t">Systeme &amp; Regeln</div><div class="d">ibelsa, DIRS21, COM25. Raten, Storno, Hunde, Kurtaxe, Parken, Kanäle.</div></div>
+    <div class="step"><div class="wk">Woche 3</div><div class="t">Begleitet arbeiten</div><div class="d">Reservierungen unter Aufsicht, Angebote nach Vorlage, am Telefon zuhören und übernehmen.</div></div>
+    <div class="step"><div class="wk">Woche 4</div><div class="t">Eigenständig</div><div class="d">Selbstständig vor Ort, Stichproben durch Katja. Abschluss-Check.</div></div>
+    <div class="step opt"><div class="wk">Woche 5–6 · optional</div><div class="t">Remote-Probe im Haus</div><div class="d">Aus eigenem Raum im Hotel nur mit Laptop und Headset arbeiten – Technik und Übergaben unter Realbedingungen testen.</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card green">
+      <h3>Abschluss-Check mit Katja</h3>
+      <ul class="check">
+        <li>Kennt alle Kategorien und die Eigenheiten der Zimmer</li>
+        <li>Hat die Zimmer-Steckbriefe mit Fotos selbst mit angelegt</li>
+        <li>Bearbeitet eine Standardanfrage ohne Hilfe vom Eingang bis zur sauberen Reservierung</li>
+        <li>Kennt alle Ansprechpartner im Haus persönlich</li>
+      </ul>
+      <p style="margin-top:2mm"><strong>Erst danach gibt Katja den Remote-Start frei.</strong></p>
+    </div>
+    <div class="card sky">
+      <h3>Wissen, das bleibt</h3>
+      <p>Was heute nur in Katjas und Sandras Kopf steckt, wird in der Einarbeitung festgehalten:</p>
+      <ul>
+        <li><strong>Zimmer-Steckbriefe:</strong> Fotos, Lage, Ausblick, Lärm, Treppen, Hunde ja/nein</li>
+        <li><strong>Textvorlagen</strong> für Angebote und häufige Fragen</li>
+        <li><strong>Ablauf-Checklisten</strong> für Sonderfälle</li>
+      </ul>
+      <p>Ein Gewinn für das ganze Haus – egal ob remote oder vor Ort.</p>
+    </div>
+  </div>
+
+  <h3>Danach: jeden Monat 2–3 Tage am Stück im Haus</h3>
+  <div class="grid4">
+    <div class="card"><span class="tag">1</span><h3 style="margin-top:2mm">Monatsgespräch</h3><p>Mit Katja/Benno: Zahlen, Feedback, Ziele (ca. 60 min)</p></div>
+    <div class="card"><span class="tag">2</span><h3 style="margin-top:2mm">Rezeptionsschicht</h3><p>Kontakt zu Gästen und Team bleibt lebendig</p></div>
+    <div class="card"><span class="tag">3</span><h3 style="margin-top:2mm">Zimmer-Rundgang</h3><p>Was hat sich geändert? Renovierung, Defekte, Ausstattung</p></div>
+    <div class="card"><span class="tag">4</span><h3 style="margin-top:2mm">Teamzeit</h3><p>Gemeinsames Essen oder Teamtermin</p></div>
+  </div>
+  <p style="margin-top:3mm;color:var(--muted)">Zusätzlich je ein längerer Präsenzblock zum Saisonstart (Ostern) und zum Jahresabschluss. Reise und Unterkunft zahlen wir.</p>
+  <div class="foot"><span>Alpensonne Tegernsee · Konzept Reservierung remote</span><span>4</span></div>
+</section>
+
+<!-- 5 STEUERBARKEIT -->
+<section class="page">
+  <div class="kicker">04 · Steuerbarkeit</div>
+  <h2>So sehen wir, was passiert</h2>
+  <p class="lead">„Das kann man nicht steuern“ – doch. Jeder Schritt einer Anfrage hinterlässt Spuren in den Systemen, die wir ohnehin nutzen. An jedem Schritt gibt es einen Kontrollpunkt.</p>
+
+  <h3>Eine Anfrage – vom Eingang bis zur Anreise</h3>
+  <div class="flow">
+    <div class="f"><div class="n">1</div><div class="t">Eingang</div><div class="d">Mail an info@ oder Anruf über die Telefonanlage</div><div class="c">Antwortzeit gemessen</div></div>
+    <div class="f"><div class="n">2</div><div class="t">Entwurf</div><div class="d">COM25 schlägt vor, Remote prüft und ergänzt</div><div class="c">Stichprobe Freitag</div></div>
+    <div class="f"><div class="n">3</div><div class="t">Angebot</div><div class="d">Angebot mit Option in ibelsa</div><div class="c">Optionsliste Montag</div></div>
+    <div class="f"><div class="n">4</div><div class="t">Nachfassen</div><div class="d">Erinnerung vor Ablauf der Option</div><div class="c">Nachfassquote</div></div>
+    <div class="f"><div class="n">5</div><div class="t">Buchung</div><div class="d">Reservierung, Anzahlung, Kommentar für die Rezeption</div><div class="c">Datenqualität</div></div>
+    <div class="f"><div class="n">6</div><div class="t">Anreise</div><div class="d">Rezeption findet alles an der Reservierung</div><div class="c">Feedback Sandra</div></div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h3>Ein typischer Arbeitstag remote</h3>
+      <table>
+        <tr><th style="width:24%">Zeit</th><th>Tätigkeit</th></tr>
+        <tr><td>08:30</td><td>Postfach und Anrufe vom Vorabend, neue OTA-Buchungen prüfen</td></tr>
+        <tr><td>09:15</td><td>Mo/Mi/Fr: Check-in-Call (15 min)</td></tr>
+        <tr><td>09:30–12:00</td><td>Anfragen beantworten, Angebote schreiben, Telefon</td></tr>
+        <tr><td>12:00</td><td>Kurz mit Sandra: Anreisen morgen, Besonderheiten</td></tr>
+        <tr><td>13:00–15:00</td><td>Nachfassen, Änderungen, Anzahlungen, Zimmerplanung</td></tr>
+        <tr><td>15:00</td><td>Übergabe-Notiz im Team-Chat (Teilzeit-Ende), bei Vollzeit weiter bis 17:00</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>Befugnisse wachsen schrittweise</h3>
+      <p>Wir geben nicht am ersten Tag alles aus der Hand. Jede Stufe gibt Katja frei.</p>
+      <div class="stufen">
+        <div class="s"><b>Stufe 1</b><div class="w">Einarbeitung</div><div>Standardanfragen nach Vorlage, Reservierungen zum Ratenplan</div></div>
+        <div class="s"><b>Stufe 2</b><div class="w">nach Remote-Freigabe</div><div>Zimmerzuteilung, Optionen verlängern, Kleinigkeiten nach Regel</div></div>
+        <div class="s"><b>Stufe 3</b><div class="w">nach 3-Monats-Review</div><div>Kleine Kulanz bis Grenze X, Gruppenangebote nach Rücksprache</div></div>
+        <div class="s"><b>Bleibt bei uns</b><div class="w">Katja / Benno</div><div>Preise, DIRS21-Restriktionen, große Kulanz, Sonderkonditionen</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Alpensonne Tegernsee · Konzept Reservierung remote</span><span>5</span></div>
+</section>
+
+<!-- 6 MEETINGS -->
+<section class="page">
+  <div class="kicker">05 · Takt</div>
+  <h2>Drei kurze Calls pro Woche</h2>
+  <p class="lead">Montag, Mittwoch, Freitag um 09:15 Uhr, je 15 Minuten (höchstens 20) per Video. Mit Benno oder Katja, bei Bedarf mit Sandra. Fester Termin, feste Agenda.</p>
+
+  <div class="grid3 mt">
+    <div class="card sky">
+      <div class="day">Montag</div>
+      <div class="focus">Wochenstart: Wo stehen wir, was ist wichtig?</div>
+      <ol>
+        <li>Zahlen der Vorwoche: Anfragen, Angebote, Buchungen, offene Optionen <span class="min">2 min</span></li>
+        <li>Ausblick: Anreisen, Gruppen, Auslastung, Lücken <span class="min">5 min</span></li>
+        <li>Prioritäten: Welche Angebote nachfassen, welche Zeiträume aktiv verkaufen? <span class="min">5 min</span></li>
+        <li>Offene Punkte, wo wird Hilfe gebraucht? <span class="min">3 min</span></li>
+      </ol>
+    </div>
+    <div class="card sun">
+      <div class="day">Mittwoch</div>
+      <div class="focus">Zwischenstand und Problemfälle</div>
+      <ol>
+        <li>Was ist seit Montag passiert, Auffälligkeiten? <span class="min">3 min</span></li>
+        <li>Problemfälle: Beschwerden, Überbuchung, Zahlungen, Sonderwünsche <span class="min">7 min</span></li>
+        <li>Abstimmung mit dem Haus: gesperrte Zimmer, Technik, Housekeeping <span class="min">5 min</span></li>
+      </ol>
+    </div>
+    <div class="card green">
+      <div class="day">Freitag</div>
+      <div class="focus">Wochenabschluss und Übergabe</div>
+      <ol>
+        <li>Wochenergebnis kurz <span class="min">3 min</span></li>
+        <li>Übergabe Wochenende: Was muss die Rezeption Sa/So wissen? <span class="min">5 min</span></li>
+        <li>Lernen: Was lief nicht rund, welche Vorlage oder welcher Ablauf fehlt? <span class="min">5 min</span></li>
+        <li>Nächste Woche: Termine, Präsenztage, Urlaub <span class="min">2 min</span></li>
+      </ol>
+    </div>
+  </div>
+
+
+  <div class="callout" style="margin-top:5mm"><strong>Spielregeln:</strong> Kamera an · Termin wird nicht verschoben · Ergebnisse als 3–5 Stichpunkte in einem gemeinsamen Wochenprotokoll (eine Seite pro Woche) · Freitag zusätzlich 15 min Stichprobe: 10 zufällige Reservierungen prüfen.</div>
+
+  <h3>Alle Formate im Überblick</h3>
+  <table>
+    <tr><th style="width:30%">Format</th><th style="width:18%">Rhythmus</th><th>Inhalt</th></tr>
+    <tr><td>Check-in-Call</td><td>Mo · Mi · Fr</td><td>Zahlen, Prioritäten, Probleme, Übergabe – siehe oben</td></tr>
+    <tr><td>Team-Chat „Reservierung ↔ Rezeption“</td><td>laufend</td><td>Kurzfristige Rückfragen, Übergaben</td></tr>
+    <tr><td>Abstimmung mit Sandra</td><td>täglich, kurz</td><td>Anreisen morgen, Besonderheiten im Haus</td></tr>
+    <tr><td>Stichprobe Reservierungen</td><td>freitags</td><td>10 zufällige Reservierungen auf Preis, Rate, Gästedaten, Kommentar, Zahlung prüfen</td></tr>
+    <tr><td>Monatsgespräch vor Ort</td><td>monatlich</td><td>Dashboard, Feedback in beide Richtungen, Ziele, Befugnisse</td></tr>
+    <tr><td>Quartalsreview</td><td>vierteljährlich</td><td>Pilot-Bewertung, Anpassungen am Modell</td></tr>
+  </table>
+  <div class="foot"><span>Alpensonne Tegernsee · Konzept Reservierung remote</span><span>6</span></div>
+</section>
+
+<!-- 7 MONITORING -->
+<section class="page">
+  <div class="kicker">06 · Monitoring</div>
+  <h2>Ergebnisse messen, nicht Mausklicks</h2>
+  <p class="lead">Keine Überwachungssoftware, keine Bildschirmaufzeichnung. Die Zahlen kommen aus ibelsa, dem Postfach und der Telefonanlage – und der Mitarbeiter sieht sie genauso wie wir. Das schafft Vertrauen auf beiden Seiten und ist rechtlich sauber.</p>
+
+  <div class="dash">
+    <div class="hd"><b>Wochen-Dashboard Reservierung</b><span class="tag sun">Beispiel mit fiktiven Werten</span></div>
+    <div class="grid4">
+      <div class="kpi"><div class="l">Anfragen diese Woche</div><div class="v">47</div><div class="s ok">Mail 38 · Telefon 9</div></div>
+      <div class="kpi"><div class="l">Ø Erstantwortzeit</div><div class="v">2,4 h</div><div class="s ok">Ziel &lt; 4 h ✓</div></div>
+      <div class="kpi"><div class="l">Angebote → Buchung</div><div class="v">41 %</div><div class="s ok">Vorwoche 36 %</div></div>
+      <div class="kpi"><div class="l">Datenqualität Stichprobe</div><div class="v">9/10</div><div class="s warn">1 Kommentar fehlte</div></div>
+    </div>
+    <div class="grid2" style="margin-top:3mm">
+      <div class="kpi"><div class="l">Direktbuchungen pro Woche (letzte 8 Wochen)</div>
+        <div class="bars"><div style="height:45%"></div><div style="height:52%"></div><div style="height:48%"></div><div style="height:60%"></div><div style="height:58%"></div><div style="height:66%"></div><div style="height:71%"></div><div class="hi" style="height:78%"></div></div></div>
+      <div class="kpi"><div class="l">Offen &amp; zu tun</div>
+        <div style="font-size:8.4pt;margin-top:2mm">
+        Offene Optionen: <b>12</b> (davon 3 laufen diese Woche ab)<br>
+        Überfällige Anzahlungen: <b class="ok">0</b><br>
+        Verpasste Anrufe ohne Rückruf: <b class="ok">1</b><br>
+        Rückmeldungen Rezeption: <b>„Übergabe Gruppe Meier unklar“</b></div></div>
+    </div>
+  </div>
+
+  <h3>Kennzahlen und Zielwerte</h3>
+  <table>
+    <tr><th>Kennzahl</th><th>Quelle</th><th>Zielwert (Vorschlag, nach 3 Monaten nachschärfen)</th></tr>
+    <tr><td>Eingegangene Anfragen</td><td>Postfach, Telefonanlage</td><td>Beobachtung, Saisonvergleich</td></tr>
+    <tr><td>Erstantwortzeit</td><td>Postfach</td><td>&lt; 4 Std. in der Kernzeit, spätestens nächster Werktag</td></tr>
+    <tr><td>Geschriebene Angebote</td><td>ibelsa</td><td>Beobachtung</td></tr>
+    <tr><td>Angebots-Konversion</td><td>ibelsa</td><td>Basiswert ermitteln, dann steigern</td></tr>
+    <tr><td>Nachfassquote offener Angebote</td><td>ibelsa (Optionen)</td><td>100 % vor Ablauf der Option</td></tr>
+    <tr><td>Angenommene Anrufe</td><td>Telefonanlage</td><td>&gt; 90 % angenommen oder am selben Tag zurückgerufen</td></tr>
+    <tr><td>Direktbuchungen (Anteil, Umsatz)</td><td>ibelsa / Reporting</td><td>steigend gegenüber Vorjahr</td></tr>
+    <tr><td>Datenqualität</td><td>Stichprobe 10/Woche</td><td>&gt; 95 % fehlerfrei</td></tr>
+    <tr><td>Überfällige Anzahlungen</td><td>ibelsa</td><td>keine älter als 7 Tage</td></tr>
+  </table>
+  <p style="color:var(--muted);font-size:8.3pt">Auswertung: Benno, Papa und Katja schauen das Dashboard monatlich gemeinsam an. Vor dem Start informieren wir den Mitarbeiter schriftlich, welche Daten wofür ausgewertet werden (Datenschutz, mit Anwalt/Steuerbüro abstimmen).</p>
+  <div class="foot"><span>Alpensonne Tegernsee · Konzept Reservierung remote</span><span>7</span></div>
+</section>
+
+<!-- 8 BEDENKEN -->
+<section class="page">
+  <div class="kicker">07 · Bedenken ernst nehmen</div>
+  <h2>Katjas Fragen – unsere Antworten</h2>
+  <p class="lead">Die Bedenken sind berechtigt. Deshalb ist das Konzept genau um sie herum gebaut.</p>
+  <table class="qa">
+    <tr><th>Bedenken</th><th>Antwort im Konzept</th></tr>
+    <tr><td>„Die Person hat kein Know-how vom Hotel.“</td><td>4–6 Wochen Einarbeitung im Haus durch Katja und Sandra, jedes Zimmer gesehen, Zimmer-Steckbriefe mit Fotos, Abschluss-Check durch Katja. Danach jeden Monat 2–3 Tage vor Ort mit Zimmer-Rundgang und Rezeptionsschicht.</td></tr>
+    <tr><td>„Das kann man nicht steuern.“</td><td>Drei feste Calls pro Woche mit Agenda, Wochen-Dashboard, Stichprobe jeden Freitag, Befugnisse nur stufenweise und von Katja freigegeben. Jeder Schritt ist in ibelsa und im Postfach nachvollziehbar – transparenter als heute.</td></tr>
+    <tr><td>„Wie remote gearbeitet wird, ist nicht greifbar.“</td><td>Der Ablauf ist beschrieben: Weg einer Anfrage in 6 Schritten, typischer Arbeitstag, feste Übergaberegel. In Woche 5–6 testen wir das Ganze im Haus, bevor die Person nach Hause geht.</td></tr>
+    <tr><td>„Die Rezeption ist dann nicht besetzt.“</td><td>Doch. Die Rezeption bleibt von 07:00 bis 20:00 Uhr besetzt. Remote ist nur die Reservierung – Katja und Sandra werden entlastet.</td></tr>
+    <tr><td>„Wenn kurzfristig etwas passiert, ist niemand da.“</td><td>Was am selben Tag im Haus passiert, löst das Haus wie heute. Remote ist in der Kernzeit über Telefon und Chat sofort erreichbar.</td></tr>
+    <tr><td>„Gäste wollen persönlichen Kontakt.“</td><td>Am Telefon und per Mail merkt der Gast nicht, wo jemand sitzt – nur, ob die Antwort schnell, freundlich und kompetent ist. Der persönliche Kontakt im Haus bleibt.</td></tr>
+    <tr><td>„Gehört die Person wirklich zum Team?“</td><td>Patin Sandra, monatliche Präsenztage mit Teamzeit, Teamevents, Team-Chat.</td></tr>
+    <tr><td>„Datenschutz – Gästedaten zu Hause?“</td><td>Firmengeräte, Zwei-Faktor-Anmeldung, keine Daten lokal, fester Arbeitsplatz, schriftliche Homeoffice-Vereinbarung.</td></tr>
+    <tr><td>„Was, wenn es nicht funktioniert?“</td><td>Pilot mit klaren Kriterien. Bewertung nach Einarbeitung, nach 3 und nach 6 Monaten (Probezeit). Das Risiko ist begrenzt.</td></tr>
+  </table>
+  <div class="card navy" style="margin:2mm 0 3mm">
+    <h3>Katjas Rolle: vom Selbermachen zum Steuern</h3>
+    <p style="margin:0">Katja gibt die Reservierung nicht ab – sie übernimmt die Qualitätsverantwortung: Sie bildet aus, macht den Abschluss-Check, gibt jede Befugnisstufe frei, sieht das Wochen-Dashboard und prüft Stichproben. Sandra ist die Patin im Alltag. So bleibt das Know-how im Haus und die Kontrolle bei der Familie.</p>
+  </div>
+  <div class="callout green"><strong>Der Vergleich, der zählt:</strong> Nicht „remote oder vor Ort“, sondern „remote oder weiter unbesetzt“. Jede Woche ohne Reservierungsmanager kostet Direktbuchungen und Katjas und Sandras Zeit.</div>
+  <div class="foot"><span>Alpensonne Tegernsee · Konzept Reservierung remote</span><span>8</span></div>
+</section>
+
+<!-- 9 TECHNIK & GEHALT -->
+<section class="page">
+  <div class="kicker">08 · Technik &amp; Kosten</div>
+  <h2>Was wir brauchen – und was es kostet</h2>
+
+  <h3 style="margin-top:2mm">Technik: fast alles ist schon da</h3>
+  <table class="tight">
+    <tr><th style="width:22%">Baustein</th><th>Lösung</th></tr>
+    <tr><td>Telefon</td><td>Virtuelle Telefonanlage ist vorhanden – Gruppe „Reservierung“ auf den Remote-Arbeitsplatz schalten, bei Abwesenheit automatisch an die Rezeption</td></tr>
+    <tr><td>Mail</td><td>Heute alles über info@. Vorschlag: eigenes Reservierungspostfach oder Label, Zugriff für Katja, Sandra und Remote, mit Textvorlagen</td></tr>
+    <tr><td>COM25</td><td>Wird mit Katja ausgebaut. Remote prüft und gibt Entwürfe frei, wiederkehrende Fehler fließen zurück in die Wissensbasis</td></tr>
+    <tr><td>ibelsa · DIRS21</td><td>Cloudbasiert, eigener Benutzer mit passenden Rechten</td></tr>
+    <tr><td>Hardware</td><td>Firmen-Laptop, zweiter Bildschirm, gutes Headset – keine Privatgeräte</td></tr>
+    <tr><td>Sicherheit</td><td>Zwei-Faktor, verschlüsselte Festplatte, Bildschirmsperre, Zugriff beim Austritt sofort sperren</td></tr>
+    <tr><td>Ausfall</td><td>Bei Internet- oder Stromausfall gehen Anrufe automatisch an die Rezeption, Meldung per Handy im Team-Chat</td></tr>
+  </table>
+
+  <h3>Gehaltsvorschlag</h3>
+  <p>Reservierungskräfte verdienen in Ost- und Mitteldeutschland häufig rund <strong>2.500–3.000 €</strong>, in Oberbayern eher <strong>3.200–3.800 €</strong> brutto (Vollzeit). Wir zahlen <strong>spürbar über dem regionalen Niveau</strong> des Bewerbers – so bekommen wir dort die Besten – und liegen trotzdem unter Tegernsee-Niveau.</p>
+
+  <div class="gauge">
+    <span class="mk" style="left:8%">2.500 € Ost (unten)</span>
+    <span class="mk" style="left:40%">3.000 €</span>
+    <span class="mk us" style="left:63%">Unser Angebot ~3.350 €</span>
+    <span class="mk" style="left:92%">3.800 € Oberbayern</span>
+  </div>
+  <p style="font-size:7.8pt;color:var(--muted);margin-bottom:4mm">Vollzeit, brutto pro Monat, Orientierungswerte</p>
+
+  <div class="grid2 sal">
+    <div class="card sky">
+      <div class="kicker" style="color:var(--petrol)">Vollzeit · 40 h</div>
+      <div class="num">3.300–3.400 €</div>
+      <div class="range">Einstieg brutto/Monat · Bandbreite 3.000–3.700 €</div>
+      <p style="margin-top:2mm">Arbeitgeberkosten ca. <strong>48.000–50.000 € pro Jahr</strong></p>
+    </div>
+    <div class="card sun">
+      <div class="kicker" style="color:#a8670c">Teilzeit · 30 h (6 h × 5)</div>
+      <div class="num">2.500–2.550 €</div>
+      <div class="range">Einstieg brutto/Monat · Bandbreite 2.250–2.800 €</div>
+      <p style="margin-top:2mm">Arbeitgeberkosten ca. <strong>36.000–37.000 € pro Jahr</strong></p>
+    </div>
+  </div>
+  <p style="font-size:8pt;color:var(--muted);margin-top:2mm">Arbeitgeberkosten: 12 Gehälter plus rund 21 % Arbeitgeberanteile. Stand Herbst 2026 – vor der Ausschreibung mit aktuellen Gehaltsportalen abgleichen und prüfen, ob für uns ein Tarifvertrag gilt.</p>
+
+  <div class="grid2" style="margin-top:3mm">
+    <div class="card">
+      <h3>Zusatzleistungen</h3>
+      <ul>
+        <li>Internetpauschale bis 50 €/Monat (Steuerbüro)</li>
+        <li>+100–150 € nach bestandener Probezeit</li>
+        <li>Optional ab Jahr 2: Jahresbonus an Direktbuchungen gekoppelt</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Weitere Kosten</h3>
+      <ul>
+        <li>Unterkunft Einarbeitung (Nebensaison) und 12 × 2 Nächte Präsenz</li>
+        <li>12 Bahnreisen pro Jahr, ggf. BahnCard</li>
+        <li>Hardware einmalig, Lizenzen gering</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>Alpensonne Tegernsee · Konzept Reservierung remote</span><span>9</span></div>
+</section>
+
+<!-- 10 PILOT & ZEITPLAN -->
+<section class="page">
+  <div class="kicker">09 · Pilot &amp; Zeitplan</div>
+  <h2>Ausprobieren mit klaren Kriterien</h2>
+  <p class="lead">Wir entscheiden nicht für immer, sondern starten einen Pilot mit drei Bewertungspunkten. Wenn es nicht funktioniert, merken wir es früh.</p>
+
+  <table>
+    <tr><th style="width:24%">Zeitpunkt</th><th>Was wir bewerten</th><th style="width:26%">Entscheidung</th></tr>
+    <tr><td><strong>Ende Einarbeitung</strong><br>Woche 4–6</td><td>Abschluss-Check durch Katja: Haus, Systeme, eigenständige Bearbeitung</td><td>Remote-Start ja/nein</td></tr>
+    <tr><td><strong>Nach 3 Monaten</strong></td><td>Kennzahlen gegen Zielwerte, Feedback Rezeption und Sandra, Feedback Mitarbeiter</td><td>Anpassen, Befugnisstufe 3, oder abbrechen</td></tr>
+    <tr><td><strong>Nach 6 Monaten</strong><br>Ende Probezeit</td><td>Gesamtbild inkl. Gästefeedback und Direktbuchungen</td><td>Übernahme, Modell dauerhaft</td></tr>
+  </table>
+
+  <div class="card green" style="margin:3mm 0 5mm">
+    <h3>Erfolgskriterien Pilot</h3>
+    <div class="grid2" style="gap:2mm 6mm">
+      <div>✓ Antwortzeit-Ziel in mindestens 90 % der Fälle</div>
+      <div>✓ Datenqualität über 95 %</div>
+      <div>✓ Rezeption bewertet die Zusammenarbeit mit „gut“</div>
+      <div>✓ Keine schweren Fehler durch fehlende Abstimmung</div>
+    </div>
+  </div>
+
+  <h3>Zeitplan</h3>
+  <div class="zp">
+    <div class="z"><b>Nov 2026</b><span>Konzept abstimmen, Telefonie und Postfach vorbereiten</span></div>
+    <div class="z"><b>Dez 2026</b><span>Stellenanzeige, Video-Interviews, Probeaufgabe</span></div>
+    <div class="z"><b>Jan/Feb 2027</b><span>Start und Einarbeitung vor Ort (Nebensaison)</span></div>
+    <div class="z"><b>ab März 2027</b><span>Remote-Betrieb, bereit zum Saisonstart Ostern (26.03.)</span></div>
+    <div class="z"><b>Juni 2027</b><span>3-Monats-Review</span></div>
+    <div class="z"><b>Sep 2027</b><span>6-Monats-Review, Entscheidung</span></div>
+  </div>
+
+  <div class="grid2" style="margin-top:5mm">
+    <div class="card sky">
+      <h3>Recruiting</h3>
+      <ul>
+        <li><strong>Kanäle:</strong> Indeed, StepStone, Hotelcareer/Hogapage, LinkedIn, Arbeitsagentur in den Zielregionen, Hotelfachschulen</li>
+        <li><strong>Profil:</strong> Hotelfach-Ausbildung, Erfahrung in Reservierung/Front Office, PMS-Erfahrung, verkaufsstark am Telefon, selbstorganisiert</li>
+        <li><strong>Botschaft:</strong> „Hotel am Tegernsee – Arbeitsplatz bei dir zu Hause“</li>
+        <li><strong>Auswahl:</strong> Video-Interview → Probeaufgabe (echte, anonymisierte Anfrage) → Kennenlerntag vor Ort</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Noch zu klären</h3>
+      <ul class="check">
+        <li>Anfragen pro Woche nach Haupt- und Nebensaison</li>
+        <li>Notfall-Erreichbarkeit am Wochenende: ja/nein?</li>
+        <li>Eigenes Reservierungspostfach oder Label in info@?</li>
+        <li>Vollzeit, Teilzeit oder beides ausschreiben?</li>
+        <li>Tarifbindung prüfen</li>
+        <li>Grenze für Kulanz in Stufe 3</li>
+        <li>Steuerbüro: Unterkunft, Homeoffice-Vereinbarung, Datenschutz</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>Alpensonne Tegernsee · Konzept Reservierung remote</span><span>10</span></div>
+</section>
+
+</body>
+</html>

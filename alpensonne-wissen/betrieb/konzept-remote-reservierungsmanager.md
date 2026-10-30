@@ -1,7 +1,7 @@
 # Konzept: Reservierungsmanager (m/w/d) remote
 
 **Status:** Entwurf zur Abstimmung (Benno, Vater, Katja)
-**Stand:** 30.10.2026
+**Stand:** 30.10.2026 (v2 – mit Rückmeldungen Benno eingearbeitet)
 **Haus:** Alpensonne Tegernsee – Hotel (51 Zimmer, Kat. 01–06) und Apartments (24 Einheiten, Kat. 07–09)
 
 ---
@@ -9,6 +9,8 @@
 ## 1. Worum es geht – in drei Sätzen
 
 Wir finden am Tegernsee seit langem keinen guten Reservierungsmanager. Die Reservierung ist aber die eine Stelle an der Rezeption, die nicht zwingend vor Ort sitzen muss: Gäste fragen per Mail, Telefon und über Buchungskanäle an, und ibelsa, DIRS21 und unsere Gäste-Tools laufen ohnehin in der Cloud. Wir suchen deshalb deutschlandweit, binden die Person über eine intensive Einarbeitung vor Ort, feste Präsenztage und einen klaren Takt eng ans Haus an und messen die Arbeit an transparenten Kennzahlen.
+
+**Ist-Stand:** Reservierungen machen heute Katja und Sandra nebenbei – geschätzt 30–60 Anfragen pro Woche (Saisonunterschied wird noch ermittelt). Anfragen kommen per E-Mail über info@, COM25 unterstützt bei der Beantwortung. Ein Reservierungsmanager gibt Katja und Sandra also vor allem eines zurück: **Zeit** für Gäste, Team und Steuerung.
 
 **Wichtig:** Die Rezeption vor Ort (07:00–20:00) bleibt unverändert besetzt. Check-in, Check-out, Kurtaxe, Schlüssel und der persönliche Kontakt im Haus bleiben bei den Kolleginnen und Kollegen am Tegernsee. Remote kommt nur die Reservierung, also eine Aufgabe, die schon heute überwiegend am Bildschirm und Telefon stattfindet.
 
@@ -49,10 +51,11 @@ Die Gegenrechnung ist einfach: Jede Woche ohne Reservierungsmanager kostet Direk
 
 - **Umfang:** Vollzeit (40 h) oder Teilzeit 30 h (6 h × 5 Tage)
 - **Kernzeit:** Vorschlag 09:00–15:00 (bei Teilzeit) bzw. 08:30–17:00 (Vollzeit) – deckt die Hauptzeiten für Telefon und Anfragen ab
-- **Wochenende:** offen (siehe Fragen) – Option: ein Samstag im Monat oder rollierend in der Hauptsaison
+- **Arbeitstage:** Montag bis Freitag. Wochenende regelt die Rezeption vor Ort wie heute; ob es eine Notfall-Erreichbarkeit (z. B. Überbuchung, Systemausfall) geben soll, wird noch festgelegt
 - **Arbeitsort:** zu Hause in Deutschland, fester ruhiger Arbeitsplatz, keine Arbeit aus Cafés/Zug mit Gästedaten
 - **Arbeitszeiterfassung:** digital (ist gesetzlich ohnehin Pflicht)
-- **Vertretung:** Bei Urlaub/Krankheit übernimmt die Rezeption vor Ort wie heute; Urlaubsplanung mit der Saison abstimmen
+- **Vertretung:** Bei Urlaub/Krankheit übernehmen Katja und Sandra wie heute; Urlaubsplanung mit der Saison abstimmen
+- **Pate vor Ort:** Sandra – erste Ansprechpartnerin im Alltag, begleitet die Einarbeitung, kennt die Abläufe aus der Reservierung selbst
 
 ---
 
@@ -157,8 +160,9 @@ Kennzahlen zur Leistung sind zulässig, wenn sie transparent, zweckgebunden und 
 |---|---|
 | Hardware | Firmen-Laptop + zweiter Bildschirm + gutes Headset (gestellt, keine Privatgeräte) |
 | PMS / Channel Manager | ibelsa und DIRS21 (cloudbasiert, eigener Benutzer mit passenden Rechten) |
-| Telefon | Cloud-Telefonie bzw. App der Telefonanlage, damit die Hotelnummer +49 8022 50937-0 am Remote-Arbeitsplatz klingelt; Weiterleitung an die Rezeption bei Abwesenheit |
-| Mail | Gemeinsames Reservierungspostfach mit Textvorlagen (Tone of Voice siehe `gaeste/`) |
+| Telefon | Virtuelle Telefonanlage ist vorhanden – Durchwahl/Gruppe „Reservierung“ auf den Remote-Arbeitsplatz schalten; bei Abwesenheit automatisch an die Rezeption |
+| Mail | Heute läuft alles über info@. Vorschlag: eigenes gemeinsames Postfach bzw. Ordner/Label „Reservierung“ einrichten, Zugriff für Katja, Sandra und Remote; Textvorlagen (Tone of Voice siehe `gaeste/`) |
+| COM25 | Wird gerade mit Katja tiefer in die Beantwortung eingebunden. Rolle Remote: COM25-Entwürfe prüfen, ergänzen, freigeben – nicht blind versenden. Wiederkehrende Fehler fließen zurück in die COM25-Wissensbasis |
 | Kommunikation | Video-Tool + Team-Chat |
 | Wissen | **Zimmer-Steckbriefe:** pro Zimmer Fotos, Lage, Ausblick, Besonderheiten (z. B. Lärm, Treppen, Hunde ja/nein) – wird in der Einarbeitung vom neuen Mitarbeiter selbst mit angelegt und hilft danach auch allen anderen; Basis sind `stammdaten/kategorien.yaml` und `stammdaten/policies.yaml` |
 | Sicherheit | Zwei-Faktor-Anmeldung, Bildschirmsperre, verschlüsselte Festplatte, Zugriff wird beim Austritt sofort gesperrt |
@@ -182,6 +186,48 @@ Kennzahlen zur Leistung sind zulässig, wenn sie transparent, zweckgebunden und 
 
 ---
 
+## 10a. Steuerbarkeit konkret – so sieht Katja, was passiert
+
+Katjas Kernbedenken: *„Das kann man nicht steuern“* und *„die Person hat kein Know-how vom Hotel“*. Deshalb hier der Ablauf ganz konkret:
+
+**Eine Anfrage – vom Eingang bis zur Anreise**
+
+| Schritt | Was passiert | Wo sichtbar | Kontrollpunkt |
+|---|---|---|---|
+| 1. Eingang | Mail an info@ / Anruf über Telefonanlage | Postfach, Anrufliste | Antwortzeit wird gemessen |
+| 2. Entwurf | COM25 schlägt Antwort vor, Remote prüft und ergänzt | Postfach (Gesendet) | Stichprobe Freitag |
+| 3. Angebot | Angebot mit Option in ibelsa | ibelsa | Optionsliste im Montag-Call |
+| 4. Nachfassen | Erinnerung vor Ablauf der Option | ibelsa | Nachfassquote im Dashboard |
+| 5. Buchung | Reservierung angelegt, Anzahlung angefordert, Kommentar für die Rezeption | ibelsa | Datenqualität (Stichprobe), offene Anzahlungen |
+| 6. Anreise | Rezeption findet alles an der Reservierung | ibelsa | Rückmeldung Rezeption / Sandra |
+
+**Ein typischer Arbeitstag remote**
+
+| Uhrzeit | Tätigkeit |
+|---|---|
+| 08:30 | Postfach und Anrufliste vom Vorabend, OTA-Buchungen prüfen |
+| 09:15 | Mo/Mi/Fr: Check-in-Call (15 min) |
+| 09:30–12:00 | Anfragen beantworten, Angebote schreiben, Telefon |
+| 12:00 | Abstimmung mit Sandra: Anreisen morgen, Besonderheiten |
+| 13:00–15:00 | Nachfassen, Änderungen, Anzahlungen, Zimmerplanung |
+| 15:00 | Übergabe-Notiz im Team-Chat (Teilzeit-Ende) / bei Vollzeit weiter bis 17:00 |
+
+**Know-how aus dem Haus – wer gibt es weiter?**
+Das Wissen über das Haus haben Katja und Sandra. Sie bilden die neue Person in der Einarbeitung selbst aus; Katja verantwortet den Abschluss-Check. Was im Kopf ist, wird dabei in Zimmer-Steckbriefen und Vorlagen festgehalten – ein Gewinn für das Haus, unabhängig vom Remote-Modell.
+
+**Befugnisse wachsen stufenweise**
+
+| Stufe | Ab wann | Darf selbst |
+|---|---|---|
+| 1 | Einarbeitung | Standardanfragen nach Vorlage, Reservierungen anlegen/ändern, alles zu Preisen laut Ratenplan |
+| 2 | nach Freigabe remote | Zimmerzuteilung, Optionen verlängern, Kleinigkeiten (z. B. Zustellbett, Hund nach Regel) |
+| 3 | nach 3-Monats-Review | Kleine Kulanz/Rabatte bis Grenze X, Gruppenangebote nach Rücksprache |
+| Bleibt bei Katja/Benno | – | Preise, Restriktionen in DIRS21, größere Kulanz, Sonderkonditionen |
+
+**Katjas Rolle:** Katja gibt die Reservierung nicht aus der Hand, sondern wechselt von „selbst machen“ zu „steuern“: Abschluss-Check der Einarbeitung, Freigabe der Befugnisstufen, Stichproben, Monatsgespräch.
+
+---
+
 ## 11. Pilot und Entscheidungspunkte
 
 | Zeitpunkt | Was wir bewerten | Entscheidung |
@@ -202,11 +248,32 @@ Kennzahlen zur Leistung sind zulässig, wenn sie transparent, zweckgebunden und 
 
 | Posten | Annahme | Hinweis |
 |---|---|---|
-| Gehalt | marktgerecht für Hotelfach/Reservierung, **nicht** pauschal „Ost-Tarif“ | Ein fairer Lohn ist unser Hebel gegenüber lokalen Arbeitgebern dort |
+| Gehalt | siehe 12a | |
 | Einarbeitung Unterkunft | 4–6 Wochen Zimmer/Apartment, Nebensaison | Steuerliche Behandlung (Sachbezug/Reisekosten) mit Steuerbüro klären |
 | Reisekosten Präsenztage | 12 × Hin- und Rückfahrt (Bahn) | ggf. BahnCard stellen |
 | Unterkunft Präsenztage | 12 × 2 Nächte | in Nebensaison quasi ohne Opportunitätskosten |
 | Hardware/Software | Laptop, Monitor, Headset, Telefonie-Lizenz | einmalig bzw. monatlich gering |
+
+---
+
+## 12a. Gehaltsvorschlag
+
+Orientierungswerte, Stand Herbst 2026 – vor der Ausschreibung mit aktuellen Gehaltsportalen abgleichen und prüfen, ob für uns ein Tarifvertrag gilt (dann gilt er unabhängig vom Wohnort).
+
+Logik: Reservierungskräfte verdienen in Ost- und Mitteldeutschland häufig rund 2.500–3.000 € brutto (Vollzeit), in Oberbayern eher 3.200–3.800 €. Wir zahlen **spürbar über dem regionalen Niveau** des Bewerbers, aber unter Tegernsee-Niveau. So bekommen wir die besten Leute vor Ort und sparen trotzdem.
+
+| Modell | Bandbreite brutto/Monat | Empfehlung Einstieg | ca. Arbeitgeberkosten/Jahr* |
+|---|---|---|---|
+| Vollzeit 40 h | 3.000–3.700 € | 3.300–3.400 € | ca. 48.000–50.000 € |
+| Teilzeit 30 h (6 h × 5) | 2.250–2.800 € | 2.500–2.550 € | ca. 36.000–37.000 € |
+
+\* 12 Gehälter + rund 21 % Arbeitgeberanteile, ohne Zusatzleistungen.
+
+**Zusatzleistungen (Vorschlag):**
+- Internetpauschale bis 50 €/Monat (pauschal versteuerbar – Steuerbüro)
+- Reise und Unterkunft für Präsenztage und Einarbeitung
+- Gehaltsanpassung nach bestandener Probezeit (+100–150 €)
+- Optional ab Jahr 2: kleiner Jahresbonus, gekoppelt an Direktbuchungen
 
 ---
 
@@ -234,12 +301,11 @@ Kennzahlen zur Leistung sind zulässig, wenn sie transparent, zweckgebunden und 
 
 ## 15. Offene Fragen (bitte klären)
 
-1. Wer macht die Reservierung heute, und wie viele Anfragen/Angebote fallen pro Tag bzw. Woche an (Haupt- vs. Nebensaison)?
-2. Vollzeit oder Teilzeit – und Wochenenden/Feiertage: ja, nein, rollierend?
-3. Welche Telefonanlage haben wir, und kann die Hotelnummer auf einen Remote-Arbeitsplatz geroutet werden?
-4. Gibt es schon ein gemeinsames Reservierungspostfach und Textvorlagen für Angebote?
-5. Welche Rolle spielen COM25 und MARA bei Anfragen heute – was nehmen sie dem Reservierungsmanager schon ab?
-6. Gehaltsrahmen und Zusatzleistungen (z. B. Fahrtkosten, Ausstattungspauschale)?
-7. Wer ist fester Ansprechpartner/Pate vor Ort – Katja, Benno, Rezeptionsleitung?
-8. Welche Befugnisse soll die Person haben (Preise/Rabatte freigeben, Restriktionen in DIRS21 ändern, Kulanz bei Storno)?
-9. Welche konkreten Bedenken hat Katja über die hier genannten hinaus?
+Geklärt (30.10.): Reservierung heute Katja + Sandra; ca. 30–60 Anfragen/Woche; Mo–Fr; virtuelle Telefonanlage umschaltbar; Mail über info@; COM25 wird ausgebaut; Pate Sandra; Befugnisse stufenweise.
+
+1. Anfragen pro Woche getrennt nach Haupt- und Nebensaison (Benno liefert)
+2. Notfall-Erreichbarkeit am Wochenende: ja/nein, und wenn ja, wie vergütet?
+3. Eigenes Reservierungspostfach oder Label in info@?
+4. Vollzeit oder Teilzeit – oder beides ausschreiben und nach Bewerber entscheiden?
+5. Sind wir tarifgebunden (z. B. DEHOGA Bayern)?
+6. Grenze für Kulanz/Rabatte in Befugnisstufe 3
