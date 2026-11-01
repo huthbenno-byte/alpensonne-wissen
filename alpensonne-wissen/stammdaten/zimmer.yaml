@@ -1,0 +1,1275 @@
+# Zimmer- und Apartmentliste – Ausstattung je Einheit (75 Einheiten)
+# Quelle: stammdaten/quellen/Zimmerausstattung_2026-11-01.xlsx (von Benno/Team ausgefüllt, übergeben 01.11.2026)
+# Zimmernummern/Kategorien aus ibelsa (Stand 23.10.2026). Offensichtliche Tippfehler im Freitext korrigiert.
+# status: bestaetigt (alle Einträge, sofern nicht anders vermerkt)
+# Felder: haus (12/14 = Hotel Freihausstr., 7a/7b = Apartmenthaus Ludwig-Thoma-Str.), etage, bad, dusche_ebenerdig,
+#   aussen (Balkon/Terrasse/nein), blick, bett, max_personen (ibelsa), max_erwachsene, zustellbett, babybett, hund,
+#   barrierearm (barrierearm / Aufzug erreichbar), ruhig (ruhige Lage), besonderheiten
+# Noch nicht erfasst: Zimmergröße m², Badgröße m² (Spalten leer)
+# Stand: 2026-11-01
+
+einheiten:
+  - nr: "1"
+    haus: "12"
+    kategorie: "02"   # Doppelzimmer Mini
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Freihaustr. & Garten (Süd & West)"
+    bett: "Französisches Bett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Eckbalkon"
+  - nr: "2"
+    haus: "12"
+    kategorie: "01"   # Einzelzimmer Balkon
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Garten (West)"
+    bett: "Einzelbett (120cm)"
+    max_personen: 1
+    max_erwachsene: 1
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+  - nr: "3"
+    haus: "12"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Garten (West)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Couch nicht ausziehbar"
+  - nr: "4"
+    haus: "12"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Garten (West)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 3
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Couch ausziehbar"
+  - nr: "5"
+    haus: "12"
+    kategorie: "06"   # Apartment
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Parkplatz (Ost/Süd)"
+    bett: "Doppelbett"
+    max_personen: 5
+    max_erwachsene: 3
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Eckbalkon (Ost/Süd); Couch ausziehbar, Holzboden"
+  - nr: "6"
+    haus: "12"
+    kategorie: "06"   # Apartment
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Parkplatz (Ost)"
+    bett: "Doppelbett"
+    max_personen: 5
+    max_erwachsene: 4
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Bad hat ein Fenster, Holzboden"
+  - nr: "7"
+    haus: "12"
+    kategorie: "01"   # Einzelzimmer Balkon
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Garten (West)"
+    bett: "Einzelbett (120cm)"
+    max_personen: 1
+    max_erwachsene: 1
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+  - nr: "8"
+    haus: "12"
+    kategorie: "02"   # Doppelzimmer Mini
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Freihaustr. & Garten (Süd & West)"
+    bett: "Französisches Bett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Eckbalkon"
+  - nr: "9"
+    haus: "12"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Parkplatz (Ost/Süd)"
+    bett: "Doppelbett"
+    max_personen: 3
+    max_erwachsene: 2
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Eckbalkon (Ost/Süd)"
+  - nr: "10"
+    haus: "12"
+    kategorie: "01"   # Einzelzimmer Balkon
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Parkplatz (Ost)"
+    bett: "Einzelbett"
+    max_personen: 1
+    max_erwachsene: 1
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Holzboden (In der Regel Teppichboden)"
+  - nr: "11"
+    haus: "12"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Parkplatz (Ost)"
+    bett: "Doppelbett"
+    max_personen: 3
+    max_erwachsene: 2
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Couch ausziehbar, Holzboden (In der Regel Teppichboden)"
+  - nr: "12"
+    haus: "12"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Parkplatz (Ost)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "ja"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Bad hat ein Fenster"
+  - nr: "13"
+    haus: "12"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Garten (West)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 3
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "ja"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Couch ausziehbar"
+  - nr: "14"
+    haus: "12"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Garten (West)"
+    bett: "Doppelbett"
+    max_personen: 3
+    max_erwachsene: 2
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "ja"
+    barrierearm: "ja"
+    ruhig: "ja"
+  - nr: "15"
+    haus: "12"
+    kategorie: "05"   # Junior Apartment
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Wallberg (Süd)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 3
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Couch ausziehbar, Pantryküche, Bad hat ein Fenster"
+  - nr: "16"
+    haus: "12"
+    kategorie: "05"   # Junior Apartment
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Wallberg (Süd)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 3
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Couch ausziehbar, Pantryküche, Bad hat ein Fenster"
+  - nr: "17"
+    haus: "12"
+    kategorie: "05"   # Junior Apartment
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Apartmenthaus 300 (Norden)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 3
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Couch ausziehbar, Pantryküche, Bad hat ein Fenster"
+  - nr: "18"
+    haus: "12"
+    kategorie: "06"   # Apartment
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Apartmenthaus 300 (Norden)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 3
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Separates WC, Couch ausziehbar, Pantryküche, Bad hat ein Fenster"
+  - nr: "201"
+    haus: "14"
+    kategorie: "03"   # Doppelzimmer
+    etage: "EG"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Terrasse
+    blick: "Garten (Ost)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "nein"
+  - nr: "202"
+    haus: "14"
+    kategorie: "03"   # Doppelzimmer
+    etage: "EG"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Terrasse
+    blick: "Garten (Ost)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "nein"
+  - nr: "203"
+    haus: "14"
+    kategorie: "02"   # Doppelzimmer Mini
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "ja"
+    barrierearm: "ja"
+    ruhig: "nein"
+    besonderheiten: "Sehr kleines Zimmer, Nur für kurzen Zeitraum (Max. 1-2 Nächte); Vinylboden"
+  - nr: "204"
+    haus: "14"
+    kategorie: "02"   # Doppelzimmer Mini
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "ja"
+    barrierearm: "ja"
+    ruhig: "nein"
+    besonderheiten: "Sehr kleines Zimmer, Nur für kurzen Zeitraum (Max. 1-2 Nächte); Vinylboden"
+  - nr: "205"
+    haus: "14"
+    kategorie: "02"   # Doppelzimmer Mini
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "ja"
+    barrierearm: "ja"
+    ruhig: "nein"
+    besonderheiten: "Sehr kleines Zimmer, Nur für kurzen Zeitraum (Max. 1-2 Nächte); Vinylboden"
+  - nr: "206"
+    haus: "14"
+    kategorie: "02"   # Doppelzimmer Mini
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "ja"
+    barrierearm: "ja"
+    ruhig: "nein"
+    besonderheiten: "Sehr kleines Zimmer, Nur für kurzen Zeitraum (Max. 1-2 Nächte); Vinylboden"
+  - nr: "207"
+    haus: "14"
+    kategorie: "03"   # Doppelzimmer
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 3
+    max_erwachsene: 2
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "ja"
+    barrierearm: "ja"
+    ruhig: "nein"
+  - nr: "208"
+    haus: "14"
+    kategorie: "03"   # Doppelzimmer
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 3
+    max_erwachsene: 2
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "nein"
+  - nr: "209"
+    haus: "14"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "1"
+    bad: Wanne
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Garten (Ost)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 3
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "nein"
+    besonderheiten: "Couch ausziehbar"
+  - nr: "210"
+    haus: "14"
+    kategorie: "03"   # Doppelzimmer
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "nein"
+    besonderheiten: "Sehr kleines Doppelzimmer, Nur für kurzen Zeitraum (Max. 1-2 Nächte); Teppichboden"
+  - nr: "211"
+    haus: "14"
+    kategorie: "03"   # Doppelzimmer
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "nein"
+    besonderheiten: "Sehr kleines Doppelzimmer, Nur für kurzen Zeitraum (Max. 1-2 Nächte); Teppichboden"
+  - nr: "212"
+    haus: "14"
+    kategorie: "03"   # Doppelzimmer
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "nein"
+    besonderheiten: "Sehr kleines Doppelzimmer, Nur für kurzen Zeitraum (Max. 1-2 Nächte); Teppichboden"
+  - nr: "213"
+    haus: "14"
+    kategorie: "03"   # Doppelzimmer
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "nein"
+    besonderheiten: "Sehr kleines Doppelzimmer, Nur für kurzen Zeitraum (Max. 1-2 Nächte); Teppichboden"
+  - nr: "214"
+    haus: "14"
+    kategorie: "03"   # Doppelzimmer
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 3
+    max_erwachsene: 2
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+  - nr: "215"
+    haus: "14"
+    kategorie: "03"   # Doppelzimmer
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+  - nr: "216"
+    haus: "14"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Garten (Ost)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+  - nr: "217"
+    haus: "14"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Garten (Ost)"
+    bett: "Doppelbett (160cm)"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Nur schlanke Personen, Mini Bad, überdachter Balkon"
+  - nr: "218"
+    haus: "14"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Garten (Ost)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 3
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Couch ausziehbar, überdachter Balkon"
+  - nr: "219"
+    haus: "14"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Garten (Ost)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "2 Balkone, überdachter Balkon"
+  - nr: "220"
+    haus: "14"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "2"
+    bad: Wanne
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Wallberg (Ost) / Wallberg Süd"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "überdachter Balkon"
+  - nr: "221"
+    haus: "14"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "2"
+    bad: Wanne
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Berg (Süd)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+  - nr: "222"
+    haus: "14"
+    kategorie: "02"   # Doppelzimmer Mini
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett (160cm)"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Sehr kleines Zimmer, Dachgauben Fenster"
+  - nr: "223"
+    haus: "14"
+    kategorie: "02"   # Doppelzimmer Mini
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett (160cm)"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Sehr kleines Zimmer, Dachgauben Fenster"
+  - nr: "224"
+    haus: "14"
+    kategorie: "02"   # Doppelzimmer Mini
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett (160cm)"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Sehr kleines Zimmer, Dachgauben Fenster"
+  - nr: "225"
+    haus: "14"
+    kategorie: "03"   # Doppelzimmer
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Berg (West)"
+    bett: "Doppelbett (160cm)"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Sehr kleines Zimmer, Dachgauben Fenster"
+  - nr: "226"
+    haus: "14"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Apartment (Norden)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 3
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Waschbecken im Schlafzimmer, Mini-Bad, 226 & 227 kann man als ein Familienzimmer zusammenlegen"
+  - nr: "227"
+    haus: "14"
+    kategorie: "03"   # Doppelzimmer
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Apartment (Norden)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "ja"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Waschbecken im Schlafzimmer, Mini-Bad, 226 & 227 kann man als ein Familienzimmer zusammenlegen"
+  - nr: "228"
+    haus: "14"
+    kategorie: "02"   # Doppelzimmer Mini
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Garten (Ost)"
+    bett: "Doppelbett (160cm)"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Sehr kleines Zimmer, Dachgauben Fenster"
+  - nr: "229"
+    haus: "14"
+    kategorie: "02"   # Doppelzimmer Mini
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Garten (Ost)"
+    bett: "Doppelbett (160cm)"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Sehr kleines Zimmer, Dachgauben Fenster"
+  - nr: "230"
+    haus: "14"
+    kategorie: "02"   # Doppelzimmer Mini
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Garten (Ost)"
+    bett: "Doppelbett (160cm)"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Sehr kleines Zimmer, Dachgauben Fenster"
+  - nr: "231"
+    haus: "14"
+    kategorie: "02"   # Doppelzimmer Mini
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: nein
+    blick: "Garten (Ost)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "nein"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Sehr kleines Zimmer, Dachgauben Fenster"
+  - nr: "232"
+    haus: "14"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Berg (Süd)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Verbindungstür zwischen 232 & 233"
+  - nr: "233"
+    haus: "14"
+    kategorie: "04"   # Doppelzimmer Balkon
+    etage: "3"
+    bad: Dusche
+    dusche_ebenerdig: "nein"
+    aussen: Balkon
+    blick: "Berg (Süd)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Schönes großes Bad, Verbindungstür zwischen 232 & 233"
+  - nr: "301"
+    haus: "7b"
+    kategorie: "09"   # Apartment 2 Zimmer
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Garten (Süd)"
+    bett: "Doppelbett"
+    max_personen: 5
+    max_erwachsene: 4
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "max. 5 Personen, davon max. 1 Baby"
+  - nr: "302"
+    haus: "7b"
+    kategorie: "07"   # Apartment 1 Zimmer
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Garten (Süd)"
+    bett: "Doppelbett"
+    max_personen: 3
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Kleinkind nur im Babybett und im Bett der Eltern"
+  - nr: "303"
+    haus: "7b"
+    kategorie: "07"   # Apartment 1 Zimmer
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Garten (Süd)"
+    bett: "Doppelbett"
+    max_personen: 3
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Kleinkind nur im Babybett und im Bett der Eltern"
+  - nr: "304"
+    haus: "7b"
+    kategorie: "07"   # Apartment 1 Zimmer
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Garten (Süd)"
+    bett: "Doppelbett"
+    max_personen: 3
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Kleinkind nur im Babybett und im Bett der Eltern"
+  - nr: "305"
+    haus: "7b"
+    kategorie: "07"   # Apartment 1 Zimmer
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Garten (Süd)"
+    bett: "Doppelbett"
+    max_personen: 3
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Kleinkind nur im Babybett und im Bett der Eltern"
+  - nr: "306"
+    haus: "7b"
+    kategorie: "07"   # Apartment 1 Zimmer
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Garten (Süd)"
+    bett: "Doppelbett"
+    max_personen: 2
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Kleinkind nur im Babybett und im Bett der Eltern"
+  - nr: "307"
+    haus: "7b"
+    kategorie: "09"   # Apartment 2 Zimmer
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Garten (Süd)"
+    bett: "Doppelbett"
+    max_personen: 6
+    max_erwachsene: 4
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Maisonette, 2 Kinder bis 17 Jahren"
+  - nr: "308"
+    haus: "7b"
+    kategorie: "08"   # Apartment 1 Zimmer Maisonette
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Garten (Süd)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 4
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Maisonette, Couch ausziehbar"
+  - nr: "309"
+    haus: "7b"
+    kategorie: "08"   # Apartment 1 Zimmer Maisonette
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Garten (Süd)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 4
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Maisonette, Couch ausziehbar"
+  - nr: "310"
+    haus: "7b"
+    kategorie: "08"   # Apartment 1 Zimmer Maisonette
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Garten (Süd)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 4
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Maisonette, Couch ausziehbar"
+  - nr: "311"
+    haus: "7b"
+    kategorie: "08"   # Apartment 1 Zimmer Maisonette
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Garten (Süd)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 4
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Maisonette, Couch ausziehbar"
+  - nr: "312"
+    haus: "7b"
+    kategorie: "08"   # Apartment 1 Zimmer Maisonette
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Garten (Süd)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 4
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Maisonette, Couch ausziehbar"
+  - nr: "401"
+    haus: "7a"
+    kategorie: "09"   # Apartment 2 Zimmer
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 5
+    max_erwachsene: 4
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "max. 5 Personen, davon max. 1 Baby, direkter Zugang über Tiefgarage"
+  - nr: "402"
+    haus: "7a"
+    kategorie: "07"   # Apartment 1 Zimmer
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 3
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Kleinkind nur im Babybett und im Bett der Eltern, direkter Zugang über Tiefgarage"
+  - nr: "403"
+    haus: "7a"
+    kategorie: "07"   # Apartment 1 Zimmer
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 3
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Kleinkind nur im Babybett und im Bett der Eltern, direkter Zugang über Tiefgarage"
+  - nr: "404"
+    haus: "7a"
+    kategorie: "07"   # Apartment 1 Zimmer
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 3
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Kleinkind nur im Babybett und im Bett der Eltern, direkter Zugang über Tiefgarage"
+  - nr: "405"
+    haus: "7a"
+    kategorie: "07"   # Apartment 1 Zimmer
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 3
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Kleinkind nur im Babybett und im Bett der Eltern, direkter Zugang über Tiefgarage"
+  - nr: "406"
+    haus: "7a"
+    kategorie: "07"   # Apartment 1 Zimmer
+    etage: "1"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 3
+    max_erwachsene: 2
+    zustellbett: "nein"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Kleinkind nur im Babybett und im Bett der Eltern, direkter Zugang über Tiefgarage"
+  - nr: "407"
+    haus: "7a"
+    kategorie: "09"   # Apartment 2 Zimmer
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 6
+    max_erwachsene: 4
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Maisonette, 2 Kinder bis 17 Jahren, direkter Zugang über Tiefgarage"
+  - nr: "408"
+    haus: "7a"
+    kategorie: "08"   # Apartment 1 Zimmer Maisonette
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 4
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Maisonette, Couch ausziehbar, direkter Zugang über Tiefgarage"
+  - nr: "409"
+    haus: "7a"
+    kategorie: "08"   # Apartment 1 Zimmer Maisonette
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 4
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Maisonette, Couch ausziehbar, direkter Zugang über Tiefgarage"
+  - nr: "410"
+    haus: "7a"
+    kategorie: "08"   # Apartment 1 Zimmer Maisonette
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 4
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Maisonette, Couch ausziehbar, direkter Zugang über Tiefgarage"
+  - nr: "411"
+    haus: "7a"
+    kategorie: "08"   # Apartment 1 Zimmer Maisonette
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 4
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Maisonette, Couch ausziehbar, direkter Zugang über Tiefgarage"
+  - nr: "412"
+    haus: "7a"
+    kategorie: "08"   # Apartment 1 Zimmer Maisonette
+    etage: "2"
+    bad: Dusche
+    dusche_ebenerdig: "ja"
+    aussen: Balkon
+    blick: "Berg (West)"
+    bett: "Doppelbett"
+    max_personen: 4
+    max_erwachsene: 4
+    zustellbett: "ja"
+    babybett: "ja"
+    hund: "nein"
+    barrierearm: "ja"
+    ruhig: "ja"
+    besonderheiten: "Maisonette, Couch ausziehbar, direkter Zugang über Tiefgarage"

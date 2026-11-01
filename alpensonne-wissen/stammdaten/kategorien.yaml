@@ -1,107 +1,177 @@
 # Zimmer- und Apartmentkategorien – Alpensonne Tegernsee
 # Eine Kategorie = ein Eintrag. Codes entsprechen den ibelsa-Kategorienamen.
 # status: bestaetigt = von Benno bestätigt | website = von der Website übernommen, noch nicht bestätigt | konflikt = Quellen widersprechen sich
-# Stand: 2026-10-27
-# hunde: erlaubt/nicht erlaubt je Kategorie liefert Benno in der Stammdatenliste nach
+# Stand: 2026-11-01
+#
+# Ausstattung je einzelnem Zimmer: stammdaten/zimmer.yaml (Quelle: Zimmerausstattungsliste, 01.11.2026, bestaetigt).
+# Bei Gästefragen zu einem konkreten Zimmer (Hund, Badewanne, Blick, Zustellbett) immer zimmer.yaml nutzen –
+# die Kategorie sagt nur, was es in der Kategorie gibt, nicht, dass es jedes Zimmer hat.
+#
+# Belegung (seit 01.11.2026):
+#   max_erwachsene         = höchste Zahl Erwachsene in der Kategorie (entspricht den am 27.10. bestätigten Werten)
+#   max_personen_inkl_kinder = Spanne je Zimmer laut Zimmerliste (Erwachsene + Kinder, inkl. Zustell-/Babybett)
+#   ibelsa_gaeste_max      = Wert "Gäste max." aus ibelsa (Blatt "Kategorien") – weicht teils ab, siehe offen.md
+# hunde: je Zimmer geregelt (zimmer.yaml); hier nur die Zimmer, in denen Hunde erlaubt sind.
 
 hotel:
   - code: "01"
     name: Einzelzimmer Balkon
+    anzahl: 3   # Zimmer 2, 7, 10 (Haus 12)
     groesse_m2: [13, 17]
-    max_personen: 1
+    max_erwachsene: 1
+    max_personen_inkl_kinder: 1
+    ibelsa_gaeste_max: 1
     bad: Kleines Bad mit Dusche/WC
-    balkon: Balkon oder Terrasse
+    balkon: Balkon   # alle 3 Zimmer
+    bett: Einzelbett (120 cm)
     merkmale: [Haartrockner, Flat-TV mit Sat-Empfang, WLAN]
-    hunde: nein   # bewusst: in dieser Kategorie keine Hunde (Benno, 27.10.2026)
-    status: website
+    zustellbett: nein
+    babybett: nein
+    hunde: nein   # keines der Zimmer (Benno, 27.10.2026; bestätigt durch Zimmerliste)
+    status: website   # Belegung/Ausstattung je Zimmer bestaetigt (zimmer.yaml)
 
   - code: "02"
     name: Doppelzimmer Mini
+    anzahl: 13   # Haus 12: 1, 8 | Haus 14: 203–206, 222–224, 228–231
     groesse_m2: [13, 17]
-    max_personen: 2
+    max_erwachsene: 2
+    max_personen_inkl_kinder: 2
+    ibelsa_gaeste_max: 2
     bad: Kleines Bad mit Dusche/WC
-    balkon: nein
+    balkon: nur Zimmer 1 und 8 (Eckbalkon); alle anderen ohne Balkon
+    bett: Doppelbett (teils 160 cm), Zimmer 1 und 8 französisches Bett
     merkmale: [Haartrockner, Schreibtisch, Flat-TV mit Sat-Empfang, WLAN]
+    zustellbett: nein
+    babybett: nur Zimmer 1 und 8
+    hunde: nur Zimmer 203–206
     zielgruppe: Ideal für Einzelpersonen; zu zweit eng, v. a. bei längerem Aufenthalt (bewusst so kommuniziert)
-    status: website
+    hinweis: 203–206 sehr klein, nur für kurze Aufenthalte (max. 1–2 Nächte); 222–224 und 228–231 sehr klein, Dachgaubenfenster
+    status: website   # Belegung/Ausstattung je Zimmer bestaetigt (zimmer.yaml)
 
   - code: "03"
     name: Doppelzimmer
+    anzahl: 12   # Haus 14: 201, 202, 207, 208, 210–215, 225, 227
     groesse_m2: [17, 21]
-    max_personen: 2
+    max_erwachsene: 2
+    max_personen_inkl_kinder: [2, 3]   # 3 nur in 207, 208, 214 (2 Erw. + 1 Kind im Zustellbett)
+    ibelsa_gaeste_max: 3
     bad: Kleines Bad mit Dusche/WC
-    balkon: nein
+    balkon: nur Zimmer 201 und 202 (Terrasse, Erdgeschoss); alle anderen ohne Balkon
     merkmale: [Haartrockner, Schreibtisch oder Sitzecke, Flat-TV mit Sat-Empfang, WLAN]
-    status: website
+    zustellbett: nur Zimmer 207, 208, 214
+    babybett: nur Zimmer 207, 208, 214
+    hunde: nur Zimmer 207 und 227
+    hinweis: 210–213 sehr klein, nur für kurze Aufenthalte (max. 1–2 Nächte); 201–213 nicht als ruhige Lage markiert
+    status: website   # Belegung/Ausstattung je Zimmer bestaetigt (zimmer.yaml)
 
   - code: "04"
     name: Doppelzimmer Balkon
+    anzahl: 17   # Haus 12: 3, 4, 9, 11–14 | Haus 14: 209, 216–221, 226, 232, 233
     groesse_m2: [20, 30]
-    max_personen: 3   # bestätigt 27.10.2026
-    bad: Kleines Bad mit Dusche/WC
-    balkon: ja
+    max_erwachsene: 3   # bestätigt 27.10.2026
+    max_personen_inkl_kinder: [2, 4]   # 4 in 4, 13, 209, 218, 226 (ausziehbare Couch, max. 3 Erw.)
+    ibelsa_gaeste_max: 4
+    bad: Kleines Bad mit Dusche/WC; Zimmer 209, 220, 221 mit Badewanne
+    balkon: ja (alle)
     merkmale: [Haartrockner, Schreibtisch oder Sitzecke, Flat-TV mit Sat-Empfang, WLAN]
+    zustellbett: in 9 von 17 Zimmern (siehe zimmer.yaml)
+    babybett: in 14 von 17 Zimmern (siehe zimmer.yaml)
+    hunde: nur Zimmer 12, 13, 14
     zielgruppe: Paare & Familien
-    status: website
+    hinweis: 226 + 227 als Familienzimmer kombinierbar; 232 + 233 mit Verbindungstür
+    status: website   # Belegung/Ausstattung je Zimmer bestaetigt (zimmer.yaml)
 
   - code: "05"
     name: Junior Apartment
+    anzahl: 3   # Haus 12: 15, 16, 17
     groesse_m2: [50, 55]
-    max_personen: 3   # bestätigt 27.10.2026; Website-Detailtext (4) ist falsch
-    bad: Bad mit Regendusche/WC
+    max_erwachsene: 3   # bestätigt 27.10.2026
+    max_personen_inkl_kinder: 4   # alle 3 Einheiten, ausziehbare Couch
+    ibelsa_gaeste_max: 5
+    bad: Bad mit Dusche/WC (ebenerdig), Bad mit Fenster
     balkon: überdacht
-    kueche: Kitchenette (Kühlschrank, Backofen, Spülmaschine)
-    merkmale: [Parkett, Fußbodenheizung, 2x Flat-TV (Wohn- und Schlafbereich), Wäschewechsel am 4. Tag]
-    status: website
+    kueche: Pantryküche/Kitchenette (Kühlschrank, Backofen, Spülmaschine)
+    merkmale: [Parkett, Fußbodenheizung, 2x Flat-TV (Wohn- und Schlafbereich), Wäschewechsel am 4. Tag, ausziehbare Couch]
+    zustellbett: ja
+    babybett: ja
+    hunde: nein
+    status: website   # Belegung/Ausstattung je Zimmer bestaetigt (zimmer.yaml)
 
   - code: "06"
     name: Apartment
+    anzahl: 3   # Haus 12: 5, 6, 18
     groesse_m2: [60, 65]
-    max_personen: 4
-    bad: Bad mit Regendusche/WC
+    max_erwachsene: 4   # bestätigt (Zimmer 6); Zimmer 5 und 18: max. 3 Erw.
+    max_personen_inkl_kinder: [4, 5]   # 5 in Zimmer 5 und 6, 4 in Zimmer 18
+    ibelsa_gaeste_max: 6
+    bad: Bad mit Dusche/WC (ebenerdig)
     balkon: überdacht
     kueche: Kitchenette (Kühlschrank, Backofen, Spülmaschine)
     merkmale: [Parkett, Fußbodenheizung, 2x Flat-TV (Wohn- und Schlafbereich), Wäschewechsel am 4. Tag]
-    status: website
+    zustellbett: ja
+    babybett: ja
+    hunde: nein
+    hinweis: Zimmer 5 Eckbalkon; Zimmer 18 separates WC
+    status: website   # Belegung/Ausstattung je Zimmer bestaetigt (zimmer.yaml)
 
-apartments:   # Alpensonne Apartments, Haus A (Ludwig-Thoma-Str. 7a) und Haus B (7b), eröffnet 2026
+apartments:   # Alpensonne Apartments, Haus A (Ludwig-Thoma-Str. 7a, Nr. 401–412) und Haus B (7b, Nr. 301–312), eröffnet 2026
   - code: "07"
     name: 1-Zimmer-Apartment
     ibelsa_name: "07 Apartment 1 Zimmer"
+    anzahl: 10   # 302–306, 402–406
     groesse_m2: 65
-    max_personen: 2
-    bad: Bad mit Regendusche/WC
+    max_erwachsene: 2   # bestätigt 23.10.2026
+    max_personen_inkl_kinder: [2, 3]   # 3 = 2 Erw. + Kleinkind (nur im Babybett oder Elternbett); 306 nur 2
+    ibelsa_gaeste_max: 4
+    bad: Bad mit Dusche/WC (ebenerdig)
     balkon: überdacht
     kueche: Komplette Küche (Kühlschrank, Backofen, Spülmaschine)
-    aussicht: Bergblick oder Seeblick
+    aussicht: Haus 7b Garten (Süd), Haus 7a Berg (West)
     merkmale: [Parkett, Fußbodenheizung, 2x Flat-TV, Tiefgaragenplatz inklusive]
+    zustellbett: nein
+    babybett: ja
+    hunde: nein
     kanaele_einschraenkung: auf Airbnb angeboten
-    hinweis: Website-Karte nennt fälschlich "Maisonette" als Merkmal (bestätigt falsch)
-    status: website
+    hinweis: Website-Karte nennt fälschlich "Maisonette" als Merkmal (bestätigt falsch); Haus 7a mit direktem Zugang über Tiefgarage
+    status: website   # Belegung/Ausstattung je Einheit bestaetigt (zimmer.yaml)
 
   - code: "08"
     name: 1-Zimmer-Maisonette
     ibelsa_name: "08 Apartment 1 Zimmer Maisonette"
+    anzahl: 10   # 308–312, 408–412
     groesse_m2: 73
-    max_personen: 4
-    bad: Bad mit Regendusche/WC
+    max_erwachsene: 4
+    max_personen_inkl_kinder: 4
+    ibelsa_gaeste_max: 4
+    bad: Bad mit Dusche/WC (ebenerdig)
     balkon: überdacht
     kueche: Komplette Küche (Kühlschrank, Backofen, Spülmaschine)
-    aussicht: Bergblick oder Seeblick
-    merkmale: [Maisonette, Parkett, Fußbodenheizung, 2x Flat-TV, Tiefgaragenplatz inklusive]
+    aussicht: Haus 7b Garten (Süd), Haus 7a Berg (West)
+    merkmale: [Maisonette, ausziehbare Couch, Parkett, Fußbodenheizung, 2x Flat-TV, Tiefgaragenplatz inklusive]
+    zustellbett: ja
+    babybett: ja
+    hunde: nein
     kanaele_einschraenkung: auf Airbnb angeboten
-    status: website
+    hinweis: Haus 7a mit direktem Zugang über Tiefgarage
+    status: website   # Belegung/Ausstattung je Einheit bestaetigt (zimmer.yaml)
 
   - code: "09"
     name: 2-Zimmer-Apartment
     ibelsa_name: "09 Apartment 2 Zimmer"
+    anzahl: 4   # 301, 307, 401, 407
     groesse_m2: 90
-    max_personen: offen   # abhängig von der Belegung; Benno klärt intern (Startseite "2–6 Personen" ist falsch)
+    max_erwachsene: 4
+    max_personen_inkl_kinder: [5, 6]   # 301/401: max. 5 (davon max. 1 Baby), 307/407: max. 6 (davon 2 Kinder bis 17 J.)
+    ibelsa_gaeste_max: 6
     schlafzimmer: 2
-    bad: Bad mit Regendusche/WC
+    bad: Bad mit Dusche/WC (ebenerdig)
     balkon: überdacht
     kueche: Komplette Küche (Kühlschrank, Backofen, Spülmaschine)
-    aussicht: Bergblick oder Seeblick
+    aussicht: Haus 7b Garten (Süd), Haus 7a Berg (West)
     merkmale: [Parkett, Fußbodenheizung, 2x Flat-TV, Tiefgaragenplatz inklusive]
+    zustellbett: nur 307 und 407
+    babybett: ja
+    hunde: nein
     kanaele_einschraenkung: nicht auf Airbnb
-    status: website
+    hinweis: 301/401 Erdgeschoss; 307/407 im 2. OG als Maisonette; Haus 7a mit direktem Zugang über Tiefgarage
+    status: website   # Belegung bestaetigt 01.11.2026 (Zimmerliste) – ersetzt "offen"

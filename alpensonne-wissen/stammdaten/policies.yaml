@@ -1,6 +1,6 @@
 # Hausregeln, Zeiten, Preise für Zusatzleistungen
 # status: bestaetigt | website | offen | konflikt
-# Stand: 2026-10-27
+# Stand: 2026-11-01
 
 zeiten:
   check_in: "ab 15:00"
@@ -13,9 +13,11 @@ check_in_ort:
   status: bestaetigt
 
 hunde:
-  text: Grundsätzlich erlaubt, auf Anfrage, begrenzte Anzahl Zimmer, 20 € pro Nacht
-  nicht_erlaubt_in: ["01 Einzelzimmer Balkon"]
-  offen: Vollständige Liste je Kategorie (inkl. Apartments) liefert Benno
+  text: Auf Anfrage in ausgewählten Hotelzimmern erlaubt, 20 € pro Nacht
+  erlaubt_in_zimmer: ["12", "13", "14", "203", "204", "205", "206", "207", "227"]   # Quelle: zimmer.yaml (01.11.2026)
+  #   04 Doppelzimmer Balkon: 12, 13, 14 | 02 Doppelzimmer Mini: 203–206 | 03 Doppelzimmer: 207, 227
+  nicht_erlaubt_in: ["01 Einzelzimmer Balkon", "05 Junior Apartment", "06 Apartment", "alle Apartments 07/08/09 (Haus 7a/7b)"]
+  wording: "Hunde sind in ausgewählten Hotelzimmern auf Anfrage willkommen (20 € pro Nacht). In den Alpensonne Apartments sind keine Hunde erlaubt."
   status: bestaetigt
 
 parken:
@@ -32,6 +34,7 @@ parken:
 
 kinder_zusatzpersonen:   # gilt gleich für Hotel und Apartments
   regel: Aufpreise erst ab der 3. Person
+  moeglich_je_zimmer: Zustellbett/Babybett nicht in jedem Zimmer – je Zimmer in zimmer.yaml (Felder zustellbett, babybett, max_personen, max_erwachsene)
   zusatzperson_erwachsen: 50 € pro Nacht
   kinder_zustellbett: { "0-2": 5, "3-5": 20, "6-15": 35 }   # € pro Nacht, Alter in Jahren
   status: bestaetigt
@@ -54,6 +57,7 @@ stornobedingungen:   # laut AGB; gilt für alle flexiblen Raten (BAR), auf allen
 mindestaufenthalt:
   hotel_website: 3 Nächte ab Mai 2027
   apartments: 3 Nächte (Basis der Preisstaffel 2/3/7 Nächte – Klärung, ob 2 Nächte buchbar)
+  achtung: Zimmer 203–206 (02) und 210–213 (03) laut Zimmerliste "nur für kurzen Zeitraum (max. 1–2 Nächte)" – passt nicht zu 3 Nächten Mindestaufenthalt ab Mai 2027, Klärung offen
   status: offen
 
 kurtaxe:   # pro Person und Nacht, wird vor Ort im Hotel bezahlt

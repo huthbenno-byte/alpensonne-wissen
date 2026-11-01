@@ -9,7 +9,7 @@ Stammdaten sind die eine Wahrheit. ibelsa, DIRS21, Kanäle, COM25, MARA und die 
 ## Module
 | Ordner | Inhalt |
 |---|---|
-| stammdaten/ | Basisdaten, Kategorien, Ausstattung, Policies, Raten |
+| stammdaten/ | Basisdaten, Kategorien, Zimmerliste (zimmer.yaml), Ausstattung, Policies, Raten |
 | pms-ibelsa/ | ibelsa: Ratenpläne, Importe, API |
 | channel-manager-dirs21/ | DIRS21: Mapping, Konditionen, IBE |
 | kanaele/ | Eine Datei pro OTA/Partner |

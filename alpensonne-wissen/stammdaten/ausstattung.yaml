@@ -1,7 +1,8 @@
 # Ausstattung & Services – was es gibt und was es NICHT gibt
 # Quelle für COM25-Wissensbasis, MARA, OTA-Texte, Website, Schema.org
 # status: bestaetigt | website | offen | konflikt
-# Stand: 2026-10-27
+# Stand: 2026-11-01
+# Ausstattung je Zimmer (Bad, Balkon, Blick, Bett, Zustell-/Babybett, Hund): zimmer.yaml
 
 gibt_es:
   fruehstueck:
@@ -29,11 +30,18 @@ gibt_es:
     text: Bademantel gegen 10 € pro Aufenthalt; Wellnesshandtücher im Zimmer
     status: website
   babybett_zustellbett:
-    text: Babybetten und Zustellbetten verfügbar
+    text: Babybetten und Zustellbetten verfügbar – nicht in jedem Zimmer möglich, je Zimmer siehe zimmer.yaml
+    status: bestaetigt
+  barrierearm:
+    text: Alle Zimmer und Apartments barrierearm bzw. per Aufzug erreichbar (laut Zimmerliste); ebenerdige Dusche in allen Junior Apartments, Apartments (05–09) sowie Zimmer 11, 201, 202
+    hinweis: 'Barrierearm ist nicht barrierefrei – nicht als rollstuhlgerecht bewerben'
+    status: bestaetigt
+  badewanne:
+    text: Badewanne nur in Zimmer 209, 220, 221 (Doppelzimmer Balkon); sonst überall Dusche
     status: bestaetigt
   e_ladestationen:
     text: 2 E-Ladestationen am Haus 12 / Parkplatz, kostenpflichtig, 10 € pauschal pro Ladung
-    wording: "E-Ladestationen" (nicht "Ladepunkte")
+    wording: 'E-Ladestationen (nicht Ladepunkte)'
     status: bestaetigt
   gaestekarte:
     text: Gästekarte per E-Mail-Link beim Check-in (online Pre-Check-in möglich); kostenloser Bus im Tegernseer Tal
