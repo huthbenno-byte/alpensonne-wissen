@@ -69,6 +69,7 @@ def main(xlsx):
             "bar": section(a, "All YEAR RATE", 6),
             "ota": section(a, "OTA All YEAR RATE", 6),
             "paket_fw": section(a, "PAKET Frühstück", 3),
+            "ota_paket_fw": section(a, "OTA-PAKET Frühstück", 3),
         },
     }
     tpl = (ROOT / "tools/raten-cockpit/cockpit.template.html").read_text(encoding="utf-8")
@@ -83,7 +84,8 @@ def main(xlsx):
         "#   hotel.hs / ota_hs:      [Wochentag, Fr/Sa, NonRef Wochentag, NonRef Fr/Sa]\n"
         "#   hotel.ns / ota_ns:      [Rate, NonRef]\n"
         "#   apartments.bar / ota:   [2 N., 3–6 N. (Basis), ab 7 N., NonRef 2 N., NonRef 3–6 N., NonRef ab 7 N.]\n"
-        "#   apartments.paket_fw:    [2 N., 3–6 N., ab 7 N.]  (nur Nebensaison)\n"
+        "#   apartments.paket_fw:    [2 N., 3–6 N., ab 7 N.]  (nur Nebensaison, direkt)\n"
+        "#   apartments.ota_paket_fw:[2 N., 3–6 N., ab 7 N.]  (nur Nebensaison, OTAs, Direktpaket × 1,12)\n"
         "#   getaway_*:              Preis pro Person je Paket (Reihenfolge wie 'pakete')\n"
         "# Stellhebel: NonRef 5 %, OTA-Faktor 1,11, Apartment 2 N. +30 €, 7 N. −15 €, je Person > 2: +50 €\n"
         "# status: bestaetigt (Ratenmatrix von Benno) – Widersprüche siehe stammdaten/raten/README.md\n"

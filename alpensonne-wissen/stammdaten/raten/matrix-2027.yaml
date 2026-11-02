@@ -4,7 +4,8 @@
 #   hotel.hs / ota_hs:      [Wochentag, Fr/Sa, NonRef Wochentag, NonRef Fr/Sa]
 #   hotel.ns / ota_ns:      [Rate, NonRef]
 #   apartments.bar / ota:   [2 N., 3–6 N. (Basis), ab 7 N., NonRef 2 N., NonRef 3–6 N., NonRef ab 7 N.]
-#   apartments.paket_fw:    [2 N., 3–6 N., ab 7 N.]  (nur Nebensaison)
+#   apartments.paket_fw:    [2 N., 3–6 N., ab 7 N.]  (nur Nebensaison, direkt)
+#   apartments.ota_paket_fw:[2 N., 3–6 N., ab 7 N.]  (nur Nebensaison, OTAs, Direktpaket × 1,12)
 #   getaway_*:              Preis pro Person je Paket (Reihenfolge wie 'pakete')
 # Stellhebel: NonRef 5 %, OTA-Faktor 1,11, Apartment 2 N. +30 €, 7 N. −15 €, je Person > 2: +50 €
 # status: bestaetigt (Ratenmatrix von Benno) – Widersprüche siehe stammdaten/raten/README.md
@@ -242,3 +243,21 @@ apartments:
       '4': [490.0, 460.0, 445.0]
       '5': [540.0, 510.0, 495.0]
       '6': [590.0, 560.0, 545.0]
+  ota_paket_fw:
+    07 Apartment 1 Zimmer:
+      '1': [370.0, 336.0, 319.0]
+      '2': [370.0, 336.0, 319.0]
+      '3': [426.0, 392.0, 375.0]
+      '4': [482.0, 448.0, 431.0]
+    08 Apartment 1 Zimmer Maisonette:
+      '1': [392.0, 358.0, 342.0]
+      '2': [392.0, 358.0, 342.0]
+      '3': [448.0, 414.0, 398.0]
+      '4': [504.0, 470.0, 454.0]
+    09 Apartment 2 Zimmer:
+      '1': [437.0, 403.0, 386.0]
+      '2': [437.0, 403.0, 386.0]
+      '3': [493.0, 459.0, 442.0]
+      '4': [549.0, 515.0, 498.0]
+      '5': [605.0, 571.0, 554.0]
+      '6': [661.0, 627.0, 610.0]

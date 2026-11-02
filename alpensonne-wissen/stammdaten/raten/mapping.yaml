@@ -1,0 +1,25 @@
+# Raten-Mapping: ibelsa → DIRS21 → Kanal
+# status: bestaetigt | offen
+# Stand: 2026-11-02 – bisher nur teilweise bekannt; fehlende Codes siehe pms-ibelsa/offen.md und channel-manager-dirs21/offen.md
+
+hotel:
+  - rate: BAR Hotel Hauptsaison
+    ibelsa: HHS
+    dirs21: offen
+    kanaele: offen
+    status: bestaetigt
+  - rate: BAR Hotel Nebensaison
+    ibelsa: HNS
+    dirs21: offen
+    kanaele: offen
+    status: bestaetigt
+
+apartments:
+  - rate: OTA-Paket Frühstück & Wellness
+    dirs21_objekt: "14807888"   # ChannelSwitch Booking (Apartments)
+    staffeln:
+      - { naechte: "2",      dirs21: "#377068", booking: "#70474795" }
+      - { naechte: "3–6",    dirs21: "#377069", booking: "#70474826" }
+      - { naechte: "ab 7",   dirs21: "#377070", booking: "#70474838" }
+    hinweis: Am 02.11.2026 korrigiert – ab 3 N. war auf das Direkt-Paket verknüpft
+    status: bestaetigt
