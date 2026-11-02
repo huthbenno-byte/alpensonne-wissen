@@ -1,0 +1,244 @@
+# Ratenmatrix 2027 – erzeugt aus "Alpensonne Ratenmatrix 2027" (Excel) mit tools/raten-cockpit/build.py
+# Nicht von Hand ändern: Excel pflegen, dann neu bauen.
+# Spalten je Personenanzahl:
+#   hotel.hs / ota_hs:      [Wochentag, Fr/Sa, NonRef Wochentag, NonRef Fr/Sa]
+#   hotel.ns / ota_ns:      [Rate, NonRef]
+#   apartments.bar / ota:   [2 N., 3–6 N. (Basis), ab 7 N., NonRef 2 N., NonRef 3–6 N., NonRef ab 7 N.]
+#   apartments.paket_fw:    [2 N., 3–6 N., ab 7 N.]  (nur Nebensaison)
+#   getaway_*:              Preis pro Person je Paket (Reihenfolge wie 'pakete')
+# Stellhebel: NonRef 5 %, OTA-Faktor 1,11, Apartment 2 N. +30 €, 7 N. −15 €, je Person > 2: +50 €
+# status: bestaetigt (Ratenmatrix von Benno) – Widersprüche siehe stammdaten/raten/README.md
+hotel:
+  hs:
+    01 Einzelzimmer Balkon:
+      '1': [140.0, 150.0, 133.0, 143.0]
+    02 Doppelzimmer Mini:
+      '1': [150.0, 160.0, 143.0, 152.0]
+      '2': [196.0, 206.0, 186.0, 196.0]
+    03 Doppelzimmer:
+      '1': [213.0, 223.0, 202.0, 212.0]
+      '2': [213.0, 223.0, 202.0, 212.0]
+      '3': [263.0, 273.0, 250.0, 259.0]
+    04 Doppelzimmer Balkon:
+      '1': [218.0, 233.0, 207.0, 221.0]
+      '2': [218.0, 233.0, 207.0, 221.0]
+      '3': [268.0, 283.0, 255.0, 269.0]
+      '4': [318.0, 333.0, 302.0, 316.0]
+    05 Junior Apartment:
+      '1': [239.0, 254.0, 227.0, 241.0]
+      '2': [239.0, 254.0, 227.0, 241.0]
+      '3': [289.0, 304.0, 275.0, 289.0]
+      '4': [339.0, 354.0, 322.0, 336.0]
+      '5': [389.0, 404.0, 370.0, 384.0]
+    06 Apartment:
+      '1': [280.0, 295.0, 266.0, 280.0]
+      '2': [280.0, 295.0, 266.0, 280.0]
+      '3': [330.0, 345.0, 314.0, 328.0]
+      '4': [380.0, 395.0, 361.0, 375.0]
+      '5': [430.0, 445.0, 409.0, 423.0]
+      '6': [480.0, 495.0, 456.0, 470.0]
+  ns:
+    01 Einzelzimmer Balkon:
+      '1': [108.0, 103.0]
+    02 Doppelzimmer Mini:
+      '1': [140.0, 133.0]
+      '2': [179.0, 170.0]
+    03 Doppelzimmer:
+      '1': [189.0, 180.0]
+      '2': [189.0, 180.0]
+      '3': [239.0, 227.0]
+    04 Doppelzimmer Balkon:
+      '1': [195.0, 185.0]
+      '2': [195.0, 185.0]
+      '3': [245.0, 233.0]
+      '4': [295.0, 280.0]
+    05 Junior Apartment:
+      '1': [220.0, 209.0]
+      '2': [220.0, 209.0]
+      '3': [270.0, 257.0]
+      '4': [320.0, 304.0]
+      '5': [370.0, 352.0]
+    06 Apartment:
+      '1': [260.0, 247.0]
+      '2': [260.0, 247.0]
+      '3': [310.0, 295.0]
+      '4': [360.0, 342.0]
+      '5': [410.0, 390.0]
+      '6': [460.0, 437.0]
+  ota_hs:
+    01 Einzelzimmer Balkon:
+      '1': [155.4, 166.5, 148.0, 158.0]
+    02 Doppelzimmer Mini:
+      '1': [166.5, 177.6, 158.0, 169.0]
+      '2': [217.56, 228.66, 207.0, 217.0]
+    03 Doppelzimmer:
+      '1': [236.43, 247.53, 225.0, 235.0]
+      '2': [236.43, 247.53, 225.0, 235.0]
+      '3': [291.93, 303.03, 277.0, 288.0]
+    04 Doppelzimmer Balkon:
+      '1': [241.98, 258.63, 230.0, 246.0]
+      '2': [241.98, 258.63, 230.0, 246.0]
+      '3': [297.48, 314.13, 283.0, 298.0]
+      '4': [352.98, 369.63, 335.0, 351.0]
+    05 Junior Apartment:
+      '1': [265.29, 281.94, 252.0, 268.0]
+      '2': [265.29, 281.94, 252.0, 268.0]
+      '3': [320.79, 337.44, 305.0, 321.0]
+      '4': [376.29, 392.94, 357.0, 373.0]
+      '5': [431.79, 448.44, 410.0, 426.0]
+    06 Apartment:
+      '1': [310.8, 327.45, 295.0, 311.0]
+      '2': [310.8, 327.45, 295.0, 311.0]
+      '3': [366.3, 382.95, 348.0, 364.0]
+      '4': [421.8, 438.45, 401.0, 417.0]
+      '5': [477.3, 493.95, 453.0, 469.0]
+      '6': [532.8, 549.45, 506.0, 522.0]
+  ota_ns:
+    01 Einzelzimmer Balkon:
+      '1': [119.88, 114.0]
+    02 Doppelzimmer Mini:
+      '1': [155.4, 148.0]
+      '2': [198.69, 189.0]
+    03 Doppelzimmer:
+      '1': [209.79, 199.0]
+      '2': [209.79, 199.0]
+      '3': [265.29, 252.0]
+    04 Doppelzimmer Balkon:
+      '1': [216.45, 206.0]
+      '2': [216.45, 206.0]
+      '3': [271.95, 258.0]
+      '4': [327.45, 311.0]
+    05 Junior Apartment:
+      '1': [244.2, 232.0]
+      '2': [244.2, 232.0]
+      '3': [299.7, 285.0]
+      '4': [355.2, 337.0]
+      '5': [410.7, 390.0]
+    06 Apartment:
+      '1': [288.6, 274.0]
+      '2': [288.6, 274.0]
+      '3': [344.1, 327.0]
+      '4': [399.6, 380.0]
+      '5': [455.1, 432.0]
+      '6': [510.6, 485.0]
+  asi:
+    01 Einzelzimmer Balkon:
+      '1': [100.0]
+    02 Doppelzimmer Mini:
+      '1': [100.0]
+      '2': [160.0]
+    03 Doppelzimmer:
+      '1': [160.0]
+      '2': [160.0]
+  feuer_eis:
+    01 Einzelzimmer Balkon:
+      '1': [115.0]
+    02 Doppelzimmer Mini:
+      '1': [115.0]
+      '2': [175.0]
+    03 Doppelzimmer:
+      '1': [175.0]
+      '2': [175.0]
+  getaway_ns:
+    pakete: [3 Tage Aktivurlaub am Tegernsee inkl. Aqua-Biking, 3 Tage Erholungsurlaub am Tegernsee inkl. Massage & Jod-Schwefelbad, 4 Tage Erholungsurlaub am Tegernsee inkl. Massage & Jod-Schwefelbad,
+      5 Tage Aktivurlaub am Tegernsee inkl. Aqua-Biking, 5 Tage Erholungsurlaub am Tegernsee inkl. Massage & Jod-Schwefelbad, 7 Tage Erholungsurlaub am Tegernsee inkl. Massage & Jod-Schwefelbad, 8 Tage
+        Erholungsurlaub am Tegernsee inkl. Massage & Jod-Schwefelbad, Winterzauber Special - 2 Nächte gratis am Tegernsee, Winterzauber Special 5 Nächte für 4 am Tegernsee]
+    leistungen: [2 Nächte 1x Massage 1x Aqua-Biking 1x Jod-Schwefelbad, 2 Nächte 1x Massage 1x Jod-Schwefelbad, 3 Nächte 2x Massage 1x Jod-Schwefelbad, 4 Nächte 1x Massage 2x Aqua-Biking 1x Jod-Schwefelbad,
+      4 Nächte 2x Massage 1x Jod-Schwefelba, 6 Nächte 2x Massage 1x Jod-Schwefelba, 7 Nächte 2x Massage 2x Jod-Schwefelba, 8 Nächte und 2 Gratis Nur 6 Zahlen, 5 Nächte und 1 Gratis Nur 4 Zahlen]
+    preise:
+      01 Einzelzimmer Balkon:
+        '1': [366.0, 346.0, 534.0, 602.0, 642.0, 858.0, 1016.0, 648.0, 432.0]
+      02 Doppelzimmer Mini:
+        '1': [430.0, 410.0, 630.0, 730.0, 770.0, 1050.0, 1240.0, 840.0, 560.0]
+        '2': [null, null, null, null, null, null, null, null, null]
+      03 Doppelzimmer:
+        '1': [339.0, 319.0, 493.5, 548.0, 588.0, 777.0, 921.5, 567.0, 378.0]
+        '2': [678.0, 638.0, 987.0, 1096.0, 1176.0, 1554.0, 1843.0, 1134.0, 756.0]
+      04 Doppelzimmer Balkon:
+        '1': [345.0, 325.0, 502.5, 560.0, 600.0, 795.0, 942.5, 585.0, 390.0]
+        '2': [690.0, 650.0, 1005.0, 1120.0, 1200.0, 1590.0, 1885.0, 1170.0, 780.0]
+      05 Junior Apartment:
+        '1': [370.0, 350.0, 540.0, 610.0, 650.0, 870.0, 1030.0, 660.0, 440.0]
+        '2': [740.0, 700.0, 1080.0, 1220.0, 1300.0, 1740.0, 2060.0, 1320.0, 880.0]
+      06 Apartment:
+        '1': [410.0, 390.0, 600.0, 690.0, 730.0, 990.0, 1170.0, 780.0, 520.0]
+        '2': [820.0, 780.0, 1200.0, 1380.0, 1460.0, 1980.0, 2340.0, 1560.0, 1040.0]
+  getaway_hs:
+    pakete: [3 Tage Aktivurlaub am Tegernsee inkl. Aqua-Biking, 3 Tage Erholungsurlaub am Tegernsee inkl. Massage & Jod-Schwefelbad, 4 Tage Erholungsurlaub am Tegernsee inkl. Massage & Jod-Schwefelbad,
+      5 Tage Aktivurlaub am Tegernsee inkl. Aqua-Biking, 5 Tage Erholungsurlaub am Tegernsee inkl. Massage & Jod-Schwefelbad, 7 Tage Erholungsurlaub am Tegernsee inkl. Massage & Jod-Schwefelbad, 8 Tage
+        Erholungsurlaub am Tegernsee inkl. Massage & Jod-Schwefelbad, Winterzauber Special - 2 Nächte gratis am Tegernsee, Winterzauber Special 5 Nächte für 4 am Tegernsee]
+    leistungen: [2 Nächte 1x Massage 1x Aqua-Biking 1x Jod-Schwefelbad, 2 Nächte 1x Massage 1x Jod-Schwefelbad, 3 Nächte 2x Massage 1x Jod-Schwefelbad, 4 Nächte 1x Massage 2x Aqua-Biking 1x Jod-Schwefelbad,
+      4 Nächte 2x Massage 1x Jod-Schwefelba, 6 Nächte 2x Massage 1x Jod-Schwefelba, 7 Nächte 2x Massage 2x Jod-Schwefelba, 8 Nächte und 2 Gratis Nur 6 Zahlen, 5 Nächte und 1 Gratis Nur 4 Zahlen]
+    preise:
+      01 Einzelzimmer Balkon:
+        '1': [430.0, 410.0, 630.0, 730.0, 770.0, 1050.0, 1240.0, null, null]
+      02 Doppelzimmer Mini:
+        '1': [450.0, 430.0, 660.0, 770.0, 810.0, 1110.0, 1310.0, null, null]
+        '2': [null, null, null, null, null, null, null, null, null]
+      03 Doppelzimmer:
+        '1': [363.0, 343.0, 529.5, 596.0, 636.0, 849.0, 1005.5, null, null]
+        '2': [726.0, 686.0, 1059.0, 1192.0, 1272.0, 1698.0, 2011.0, null, null]
+      04 Doppelzimmer Balkon:
+        '1': [368.0, 348.0, 537.0, 606.0, 646.0, 864.0, 1023.0, null, null]
+        '2': [736.0, 696.0, 1074.0, 1212.0, 1292.0, 1728.0, 2046.0, null, null]
+      05 Junior Apartment:
+        '1': [389.0, 369.0, 568.5, 648.0, 688.0, 927.0, 1096.5, null, null]
+        '2': [778.0, 738.0, 1137.0, 1296.0, 1376.0, 1854.0, 2193.0, null, null]
+      06 Apartment:
+        '1': [430.0, 410.0, 630.0, 730.0, 770.0, 1050.0, 1240.0, null, null]
+        '2': [860.0, 820.0, 1260.0, 1460.0, 1540.0, 2100.0, 2480.0, null, null]
+apartments:
+  bar:
+    07 Apartment 1 Zimmer:
+      '1': [290.0, 260.0, 245.0, 276.0, 247.0, 233.0]
+      '2': [290.0, 260.0, 245.0, 276.0, 247.0, 233.0]
+      '3': [340.0, 310.0, 295.0, 323.0, 295.0, 280.0]
+      '4': [390.0, 360.0, 345.0, 371.0, 342.0, 328.0]
+    08 Apartment 1 Zimmer Maisonette:
+      '1': [310.0, 280.0, 265.0, 295.0, 266.0, 252.0]
+      '2': [310.0, 280.0, 265.0, 295.0, 266.0, 252.0]
+      '3': [360.0, 330.0, 315.0, 342.0, 314.0, 299.0]
+      '4': [410.0, 380.0, 365.0, 390.0, 361.0, 347.0]
+    09 Apartment 2 Zimmer:
+      '1': [350.0, 320.0, 305.0, 333.0, 304.0, 290.0]
+      '2': [350.0, 320.0, 305.0, 333.0, 304.0, 290.0]
+      '3': [400.0, 370.0, 355.0, 380.0, 352.0, 337.0]
+      '4': [450.0, 420.0, 405.0, 428.0, 399.0, 385.0]
+      '5': [500.0, 470.0, 455.0, 475.0, 447.0, 432.0]
+      '6': [550.0, 520.0, 505.0, 523.0, 494.0, 480.0]
+  ota:
+    07 Apartment 1 Zimmer:
+      '1': [321.9, 288.6, 273.6, 306.0, 274.0, 260.0]
+      '2': [321.9, 288.6, 273.6, 306.0, 274.0, 260.0]
+      '3': [377.4, 344.1, 329.1, 359.0, 327.0, 313.0]
+      '4': [432.9, 399.6, 384.6, 411.0, 380.0, 365.0]
+    08 Apartment 1 Zimmer Maisonette:
+      '1': [344.1, 310.8, 295.8, 327.0, 295.0, 281.0]
+      '2': [344.1, 310.8, 295.8, 327.0, 295.0, 281.0]
+      '3': [399.6, 366.3, 351.3, 380.0, 348.0, 334.0]
+      '4': [455.1, 421.8, 406.8, 432.0, 401.0, 386.0]
+    09 Apartment 2 Zimmer:
+      '1': [388.5, 355.2, 340.2, 369.0, 337.0, 323.0]
+      '2': [388.5, 355.2, 340.2, 369.0, 337.0, 323.0]
+      '3': [444.0, 410.7, 395.7, 422.0, 390.0, 376.0]
+      '4': [499.5, 466.2, 451.2, 475.0, 443.0, 429.0]
+      '5': [555.0, 521.7, 506.7, 527.0, 496.0, 481.0]
+      '6': [610.5, 577.2, 562.2, 580.0, 548.0, 534.0]
+  paket_fw:
+    07 Apartment 1 Zimmer:
+      '1': [330.0, 300.0, 285.0]
+      '2': [330.0, 300.0, 285.0]
+      '3': [380.0, 350.0, 335.0]
+      '4': [430.0, 400.0, 385.0]
+    08 Apartment 1 Zimmer Maisonette:
+      '1': [350.0, 320.0, 305.0]
+      '2': [350.0, 320.0, 305.0]
+      '3': [400.0, 370.0, 355.0]
+      '4': [450.0, 420.0, 405.0]
+    09 Apartment 2 Zimmer:
+      '1': [390.0, 360.0, 345.0]
+      '2': [390.0, 360.0, 345.0]
+      '3': [440.0, 410.0, 395.0]
+      '4': [490.0, 460.0, 445.0]
+      '5': [540.0, 510.0, 495.0]
+      '6': [590.0, 560.0, 545.0]

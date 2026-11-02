@@ -2,6 +2,7 @@
 
 Zentrale Wissensbasis für die Alpensonne Tegernsee (Hotel und Apartments).
 Systemlandkarte: https://claude.ai/artifact/GaJae1y5Z6heYMGfeyDuKh
+Raten-Cockpit (Rezeption): https://claude.ai/artifact/HAAE1FAsPnKerC9w5nJDbJ
 
 ## Prinzip
 Stammdaten sind die eine Wahrheit. ibelsa, DIRS21, Kanäle, COM25, MARA und die Website werden dagegen gepflegt und geprüft.
@@ -14,7 +15,7 @@ Stammdaten sind die eine Wahrheit. ibelsa, DIRS21, Kanäle, COM25, MARA und die 
 | channel-manager-dirs21/ | DIRS21: Mapping, Konditionen, IBE |
 | kanaele/ | Eine Datei pro OTA/Partner |
 | gaeste/ | COM25, MARA, Tone of Voice, Straiv, Audavo, Brevo |
-| tools/ | Verweise auf die App-Repos (Reporting, Ankünfte, Preis-Check, Mahnwesen) |
+| tools/ | Raten-Cockpit (Rezeption) und Verweise auf die App-Repos (Reporting, Ankünfte, Preis-Check, Mahnwesen) |
 | web/ | Websites, Landingpages, KI-Sichtbarkeit |
 | finanzen/ | Budget, Steuerbüro, Archiv |
 | betrieb/ | SALTO, IT, Housekeeping, Bauprojekte |
