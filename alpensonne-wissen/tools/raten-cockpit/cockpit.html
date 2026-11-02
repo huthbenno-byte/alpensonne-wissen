@@ -1,25 +1,26 @@
 <title>Alpensonne Raten-Cockpit</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
 <style>
-/* Layout: Rezeptions-Werkzeug. Klebende Kopfleiste mit Stichtag + vier Reitern; darunter eine Spalte, Karten nur für Aktionen. */
+/* Layout: Rezeptions-Werkzeug. Klebende Kopfleiste mit Stichtag + vier Reitern; darunter eine Spalte, Karten nur für Aktionen.
+   Farben und Schrift aus dem Website-Theme alpensonnetegernsee.de (Elementor-Kit): Sonnengelb #F8AA2F, Gold #C77F0E, Sand #F3E4C4/#EDD9BF, Braun #8B5A2B, Seeblau #2E5A78, DM Sans. */
 :root{
-  --bg:#f3f5f2; --surface:#ffffff; --surface-2:#e8ece6; --fg:#1b2420; --muted:#5b6a62; --line:#d3dad3;
-  --accent:#2c5b4c; --accent-fg:#ffffff; --sun:#d9930f; --sun-soft:#fbefd6;
-  --ok:#2f7a4a; --ok-soft:#dff0e3; --warn:#a36200; --warn-soft:#fcecd0; --crit:#b23a2e; --crit-soft:#f8dfdb; --info-soft:#e3ece9;
-  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --f-body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
-  --r:10px;
+  --bg:#faf7f1; --surface:#ffffff; --surface-2:#f6eedc; --fg:#1f1a14; --muted:#6f675c; --line:#e8dcc6;
+  --accent:#f8aa2f; --accent-fg:#3f3f3f; --ink:#8b5a2b; --sun:#c77f0e; --sun-soft:#fdf0d8; --lake:#2e5a78;
+  --ok:#2f7a4a; --ok-soft:#e1f0e4; --warn:#9a5f06; --warn-soft:#fbecd2; --crit:#7c1c1c; --crit-soft:#f6dfdc; --info-soft:#e6eef4;
+  --f-display:"DM Sans", "Segoe UI", system-ui, sans-serif;
+  --f-body:"DM Sans", "Segoe UI", system-ui, sans-serif;
+  --r:8px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#141a17; --surface:#1c2420; --surface-2:#25302a; --fg:#e7ede9; --muted:#9db0a5; --line:#33413a;
-  --accent:#7cc0a6; --accent-fg:#0f1714; --sun:#f0b443; --sun-soft:#3a2f17;
-  --ok:#79cf95; --ok-soft:#1f3a29; --warn:#f0b443; --warn-soft:#3a2f17; --crit:#f08a7e; --crit-soft:#3d221f; --info-soft:#22302b; color-scheme:dark}}
+  --bg:#17140f; --surface:#211d17; --surface-2:#2c261e; --fg:#f2ece2; --muted:#b3a998; --line:#3a3228;
+  --accent:#f8aa2f; --accent-fg:#1f1a14; --ink:#f8aa2f; --sun:#f8aa2f; --sun-soft:#3a2c14; --lake:#8fbbd8;
+  --ok:#79cf95; --ok-soft:#1f3a29; --warn:#f8c06a; --warn-soft:#3a2c14; --crit:#f0948a; --crit-soft:#3d211e; --info-soft:#1f2b34; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#141a17; --surface:#1c2420; --surface-2:#25302a; --fg:#e7ede9; --muted:#9db0a5; --line:#33413a;
-  --accent:#7cc0a6; --accent-fg:#0f1714; --sun:#f0b443; --sun-soft:#3a2f17;
-  --ok:#79cf95; --ok-soft:#1f3a29; --warn:#f0b443; --warn-soft:#3a2f17; --crit:#f08a7e; --crit-soft:#3d221f; --info-soft:#22302b; color-scheme:dark}
+  --bg:#17140f; --surface:#211d17; --surface-2:#2c261e; --fg:#f2ece2; --muted:#b3a998; --line:#3a3228;
+  --accent:#f8aa2f; --accent-fg:#1f1a14; --ink:#f8aa2f; --sun:#f8aa2f; --sun-soft:#3a2c14; --lake:#8fbbd8;
+  --ok:#79cf95; --ok-soft:#1f3a29; --warn:#f8c06a; --warn-soft:#3a2c14; --crit:#f0948a; --crit-soft:#3d211e; --info-soft:#1f2b34; color-scheme:dark}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.45}
@@ -28,16 +29,17 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
 header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;padding-block:12px}
 .brand{display:flex;flex-direction:column;min-width:0}
-.brand b{font-family:var(--f-display);font-size:20px;font-weight:700;letter-spacing:-.01em}
+.brand b{font-family:var(--f-display);font-size:19px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.brand b i{font-style:normal;color:var(--sun)}
 .brand span{font-size:12.5px;color:var(--muted)}
 .stichtag{display:flex;align-items:center;gap:8px;margin-left:auto;flex-wrap:wrap}
 .stichtag label{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .season{font-size:13px;font-weight:700;padding:3px 10px;border-radius:99px}
-.season.HS{background:var(--sun-soft);color:var(--warn)} .season.NS{background:var(--info-soft);color:var(--accent)}
+.season.HS{background:var(--sun-soft);color:var(--warn)} .season.NS{background:var(--info-soft);color:var(--lake)}
 nav.tabs{display:flex;gap:4px;overflow-x:auto;width:100%;scrollbar-width:none}
 nav.tabs a{padding:8px 14px;border-radius:8px 8px 0 0;color:var(--muted);text-decoration:none;font-weight:600;white-space:nowrap;border-bottom:3px solid transparent}
-nav.tabs a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--accent)}
-nav.tabs a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+nav.tabs a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--ink)}
+nav.tabs a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 main{padding-block:22px 60px}
 h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.01em}
 h2{font-size:22px;font-weight:700} h3{font-size:16px;font-weight:700}
@@ -48,8 +50,8 @@ section.view{display:flex;flex-direction:column;gap:22px}
 input,select,textarea{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 10px;min-width:0}
 textarea{width:100%;min-height:64px;resize:vertical}
 button{font:inherit;font-weight:600;cursor:pointer;border-radius:8px;padding:8px 14px;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
-button.primary{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
-button.ghost{background:transparent;border-color:transparent;color:var(--accent);padding:6px 8px}
+button.primary{background:var(--accent);color:var(--accent-fg);border-color:var(--ink)}
+button.ghost{background:transparent;border-color:transparent;color:var(--ink);padding:6px 8px}
 button.danger{color:var(--crit)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-size:13px;padding:4px 11px;border-radius:99px;border:1px solid var(--line);background:var(--surface);cursor:pointer;color:var(--fg)}
@@ -64,7 +66,7 @@ button.danger{color:var(--crit)}
 .card.past{opacity:.75}
 .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
 .kanal{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-.disc{font-family:var(--f-display);font-size:26px;font-weight:700;line-height:1;white-space:nowrap;color:var(--accent)}
+.disc{font-family:var(--f-display);font-size:26px;font-weight:700;line-height:1;white-space:nowrap;color:var(--ink)}
 .card h3{font-size:17px}
 dl.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0;font-size:14px}
 dl.kv dt{color:var(--muted)} dl.kv dd{margin:0;min-width:0;overflow-wrap:anywhere}
@@ -90,7 +92,7 @@ tr.sum td{font-weight:700;background:var(--surface-2)}
 td.we{color:var(--warn);font-weight:600}
 .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
 .result{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:4px}
-.result.main{border-color:var(--accent)}
+.result.main{border-color:var(--ink)}
 .result small{color:var(--muted);font-size:12.5px}
 .result .big{font-family:var(--f-display);font-size:26px;font-weight:700;font-variant-numeric:tabular-nums}
 .result .strike{text-decoration:line-through;color:var(--muted);font-size:14px}
@@ -114,7 +116,7 @@ details.block>div{padding:0 16px 16px;display:flex;flex-direction:column;gap:10p
 
 <header class="top">
   <div class="wrap">
-    <div class="brand"><b>Raten-Cockpit</b><span>Alpensonne Tegernsee · Rezeption</span></div>
+    <div class="brand"><b>Alpen<i>sonne</i> Raten-Cockpit</b><span>Rezeption · Hotel 01–06 und Apartments 07–09</span></div>
     <div class="stichtag">
       <label for="stichtag">Stichtag</label>
       <input type="date" id="stichtag">
@@ -500,12 +502,12 @@ function renderPreis(){
     }
   }
   const nrOk = vorlauf>=60;
-  const res = $("pResult"); res.replaceChildren(
+  const res = $("pResult"); res.replaceChildren(...[
     el("div",{class:"result main"}, el("small",{}, (ota?"OTA-Rate":"Direktrate")+" Flex · "+n+" Nächte"), gFlex<sumFlex-0.005 ? el("span",{class:"strike"}, eur(sumFlex)) : null, el("span",{class:"big"}, eur(gFlex)), el("small",{}, "Ø "+eur(gFlex/n)+" pro Nacht")),
     el("div",{class:"result"+(nrOk?"":" past")}, el("small",{}, (ota?"OTA-Rate":"Direktrate")+" NonRef"+(nrOk?"":" · nicht buchbar")), gNr<sumNr-0.005 ? el("span",{class:"strike"}, eur(sumNr)) : null, el("span",{class:"big"}, eur(gNr)), el("small",{}, "Ø "+eur(gNr/n)+" pro Nacht")),
     paket ? el("div",{class:"result"}, el("small",{}, (ota?"OTA-Paket":"Paket")+" Frühstück & Wellness"), paket.g<paket.sum-0.005 ? el("span",{class:"strike"}, eur(paket.sum)) : null, el("span",{class:"big"}, eur(paket.g)), el("small",{}, "Ø "+eur(paket.g/n)+" pro Nacht · inkl. Frühstück")) : null,
     el("div",{class:"result"}, el("small",{}, ota?"Zum Vergleich: Direktpreis Flex":"Zum Vergleich: OTA-Preis Flex"), el("span",{class:"big"}, eur(rows.reduce((t,r)=>t+r.p[ota?"flex":"otaFlex"],0))), el("small",{}, ota?"Website / Telefon, ohne Aktionen":"vor OTA-Aktionen"))
-  );
+  ].filter(Boolean));
   if (paket && paket.g <= gFlex + 0.005) box.append(el("div",{class:"notice", role:"alert"}, `Achtung: Das Paket (${eur(paket.g)}) ist nach Rabatt nicht teurer als die Standardrate (${eur(gFlex)}). Das darf nicht sein. Bitte Revenue informieren.`));
   const ab = $("pAktionen"); ab.replaceChildren();
   const used = [...usedSet];
