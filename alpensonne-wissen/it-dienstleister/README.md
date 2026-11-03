@@ -8,6 +8,8 @@
 ## Dateien
 | Datei | Inhalt |
 |---|---|
+| ablaufplan.md | **Vorgehen mit Terminen, Gesprächsleitfaden aobis, Bieterauswahl, E-Mail-Entwurf** |
+| kosten-ist.md | Ist-Kosten laut Rechnungen 08+09/2026, Zielbild |
 | vertraege.md | Alle aobis-Verträge mit dem letzten Kündigungstermin |
 | aobis-leistungsbeschreibung-client.md | Was das Paket „Client“ enthält, Schwachstellen, Lock-in-Punkte |
 | einschaetzung-wechsel.md | Einschätzung, Fahrplan, frühere Sparhebel, Änderungen an der Ausschreibung |
@@ -15,4 +17,5 @@
 
 ## Status der Fakten
 - Vertragsdaten: bestaetigt (Vertragsübersicht aobis)
-- Monatliche Ist-Kosten: **offen**, liegen noch nicht vor (siehe offen.md)
+- Monatliche Ist-Kosten: bestaetigt (1.490 € netto/Monat, Rechnungen 08+09/2026)
+- Inhalt und Kosten von Vertrag 1514: **offen**

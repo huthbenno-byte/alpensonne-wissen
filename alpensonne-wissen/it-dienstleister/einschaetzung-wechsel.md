@@ -1,42 +1,27 @@
 # Einschätzung: Wechsel weg von aobis (Stand 03.11.2026)
 
+> **Aktualisiert 03.11.2026 nach Auswertung der Rechnungen** (`kosten-ist.md`). Den verbindlichen Ablauf beschreibt `ablaufplan.md`.
+
 ## Kurzfazit
-1. **Ein Wechsel ist machbar und sinnvoll.** Die Umgebung ist klein (4 Benutzer, 4 Geräte), die Fachanwendungen laufen in der Cloud und die Technik ist Standard. Jeder regionale Managed-Service-Anbieter kann das übernehmen.
-2. **Er geht aber nicht auf einen Schlag.** Die Verträge binden gestaffelt bis 06/2027, 11/2027, 05/2028, 12/2028 und 05/2029 (siehe `vertraege.md`). Realistisch ist ein Wechsel in 3–4 Wellen, mit 2027 als Hauptjahr.
-3. **Der größte Sparhebel ist nicht der Anbieterwechsel, sondern die Verschlankung.** Zwei gehostete Server mit Terminalserver, Managed LAN, 500 GB Online-Backup und ein Hochverfügbarkeits-Firewall-Cluster sind für ein Hotel mit 4 Benutzern und reinen Cloud-Anwendungen sehr wahrscheinlich überdimensioniert.
-4. **Telefonie auslagern: ja, aber nicht als das Einfachste und nicht früh.** CloudPhone läuft bis 30.04.2028 (Kündigung bis 31.01.2028) und verlängert sich sonst um **24 Monate**. Technisch ist der Wechsel einfach, vertraglich ist er der zweitlängste Brocken.
-5. **Es fehlen noch die Ist-Kosten.** Ohne Monatsbeträge je Vertrag lässt sich weder die Ersparnis beziffern noch ein Angebot bewerten. Das ist der erste Schritt.
+1. **Ein Wechsel ist machbar und sinnvoll.** Die Umgebung ist klein (4 Benutzer, 4 Geräte), die Fachanwendungen laufen in der Cloud und die Technik ist Standard.
+2. **Der Kostenhebel ist die Verschlankung, nicht der Anbieter.** Server (565 €) und Firewall-Cluster (360 €) machen 62 % der 1.490 €/Monat aus. Beide Verträge enden am 31.10.2027. Ziel: 400–600 €/Monat, also rund 11–13 T€ Ersparnis im Jahr.
+3. **Arbeitsplätze und M365 Premium sind marktüblich bepreist** und stecken im Vertrag MBIT (1371) bis 30.11.2028. Korrektur zur ersten Einschätzung: Los 1 ist **nicht** 06/2027 wechselbar, nur die 3 Standard-Lizenzen (440).
+4. **Telefonie ist günstig** (21,30 € je Nebenstelle inkl. 9 Mietgeräten). Auslagern ist möglich, spart aber kaum. Korrektur: Ein Wechsel lohnt sich nur für Unabhängigkeit oder Funktionen, nicht wegen der Kosten.
+5. **Die Firewall ist im Vertrag „Erweiterung WLAN-Infrastruktur“ (1172)**, mit 6 Monaten Frist (30.04.2027).
 
-## Fahrplan
-| Welle | Zeitpunkt | Was | Voraussetzung |
-|---|---|---|---|
-| 0 – Datenbasis | Nov–Dez 2026 | Rechnungen der letzten 3 Monate, Vertragstexte AGL-*, Inventarliste (gemietet/gekauft), Paketstufe Client, Inhaber von Tenant, Domain und Rufnummern | Anfrage an aobis. **Bis dahin nichts Neues bei aobis unterschreiben**, jede Bestellung kann Laufzeiten verlängern |
-| 1 – Ausschreibung | Mitte Jan 2027 versenden, Angebote bis Mitte Feb | Lose 1–3, Telefonie getrennt (siehe unten) | Entscheidung zu Los 1 vor dem **28.02.2027** |
-| 2 – Arbeitsplätze, M365, Backup | Übergang 01.06./01.07.2027 | Clients, Benutzer, M365 (CSP-Partnerwechsel, keine Tenant-Migration), E-Mail-Sicherheit, M365-Backup | Kündigung 440 bis 28.02., 439 bis 31.05. |
-| 3 – Server und WLAN | Übergang 01.11.2027 | Server ablösen (Entra ID / Intune statt DC + RDS), Backup neu aufsetzen, WLAN-Erweiterung | Kündigung 1172 bis **30.04.2027**, 754 bis 31.07.2027. Klären, ob APs gemietet sind und zurückgehen, sonst Ersatz bis 31.10. |
-| 4 – Telefonie | Übergang 01.05.2028 | Cloud-Telefonanlage bei einem Spezialanbieter, Endgeräte kaufen, Rufnummern portieren, Audavo-Weiterleitung umziehen | Kündigung 357 bis **31.01.2028** |
-| 5 – Netzwerk-Rest | 12/2028 bzw. 05/2029 | MBIT-Hardware, Netzwerk Apartments | Ablöse vorher verhandeln oder bis Laufzeitende behalten |
+## Frühere Lösungen
+Siehe `ablaufplan.md`, Phase 2 (Gespräch mit aobis): Server-Ablösung mit vorzeitiger Aufhebung von 754, Einzel-Firewall, Backup reduzieren, Sammelpostfächer, Laufzeiten auf ein gemeinsames Ende legen.
 
-## Frühere Lösungen: sparen, bevor die Verträge enden
-1. **Nachverhandeln mit aobis, mit der Ausschreibung im Rücken (stärkster Hebel, sofort).** Offen kommunizieren, dass ausgeschrieben wird. Konkret fordern:
-   - Preisreduktion auf die Monatspositionen ab sofort, alternativ ein Gegenangebot zu Variante A der Ausschreibung
-   - **Aufhebungsvereinbarung** für den Server-Vertrag (754), sobald die Server durch M365/Intune abgelöst sind, statt bis 10/2027 doppelt zu zahlen
-   - Ablösepreis (Restwert) für die Hardware aus 1371 und 1514, damit Los 2 nicht bis 2029 blockiert ist
-2. **Lizenzen bereinigen (Sofortmaßnahme).** Die 3 Business-Standard-Lizenzen dienen laut Ausschreibung u. a. für Funktions-/Shared-Postfächer. Freigegebene Postfächer in Exchange Online brauchen bis 50 GB **keine Lizenz**. Prüfen, welche der 3 wirklich Personen gehören. Mögliche Ersparnis: rund 12 € je Lizenz und Monat (Listenpreis, Rabatte über aobis unbekannt).
-3. **Backup-Menge prüfen.** Was liegt in den 500 GB? Wenn das hauptsächlich die Server sind, schrumpft die Menge mit deren Ablösung. Der Vertrag hat nur 1 Monat Frist und ist damit der flexibelste.
-4. **Firewall-Cluster hinterfragen.** Für diese Betriebsgröße reicht in der Regel eine Firewall mit LTE/5G-Backup-Leitung. Ein Cluster heißt doppelte Miete und doppelte Lizenz.
-5. **Vorsorglich fristgerecht kündigen.** Kündigungen zu den Terminen 2027 vorsorglich aussprechen, auch wenn noch nicht feststeht, ob man wechselt. Ein neuer Vertrag mit aobis zu besseren Konditionen bleibt möglich. Risiko: Fällt die Kündigung durch und es gibt keinen Nachfolger, endet der Service. Deshalb nur zusammen mit dem Fahrplan oben.
-
-## Telefonie: Vorschlag
-- **Aus der IT-Ausschreibung herausnehmen** (Los 4 streichen) und Mitte 2027 separat 2–3 Angebote von Cloud-Telefonanbietern einholen (z. B. sipgate, Placetel, NFON, easybell, Telekom CloudPBX). Bei 3 Nebenstellen ist das ein Standardprodukt, ein IT-Dienstleister schlägt nur Marge auf.
-- Anforderungen: Rufnummernportierung, Gruppen, Ansagen und Zeitsteuerung, **SIP-Weiterleitung an Audavo** (vorher mit Audavo klären, welche Anbieter getestet sind), DECT für die Rezeption.
-- **Endgeräte kaufen statt mieten** (Größenordnung 80–200 € je Gerät, DECT-Basis 150–300 €). Das amortisiert sich gegenüber Miete meist nach 1–2 Jahren.
-- Vorher klären: Wer ist Anschlussinhaber der Rufnummern? Gehen die Nummern bei aobis/CloudPhone auf Hotelplan? Ohne das ist keine Portierung möglich.
+## Telefonie
+- Geringe Priorität. Q4 2027 zwei bis drei Angebote einholen (Cloud-Telefonanbieter direkt, z. B. sipgate, Placetel, NFON, easybell, plus aobis), Entscheidung bis 10.01.2028.
+- Wichtig ist vor allem, die **24-monatige Verlängerung zu vermeiden** (Kündigung bis 31.01.2028).
+- Anforderungen: Portierung, Gruppen, Ansagen und Zeitsteuerung, SIP-Weiterleitung an Audavo, DECT an der Rezeption.
+- Vorher klären: Auf wen laufen die Rufnummern?
 
 ## Änderungen an der Ausschreibung (Entwurf Oktober 2026)
 1. **Los 4 Telefonie streichen** bzw. als „späteres separates Verfahren“ erwähnen.
-2. **Übergangstermine je Los nennen** statt „[Monat JJJJ]“: Los 1 = 01.06.2027, Los 3 = 01.11.2027, Los 2 = gestaffelt (WLAN-Erweiterung 11/2027, übrige Netzwerk-Hardware 12/2028 und 05/2029, Ablöse in Verhandlung).
-3. **Bindefrist**: 90 Tage reichen nicht für Übergänge im November 2027. Preisgarantie bis mindestens 31.12.2027 verlangen.
+2. **Übergangstermine je Los nennen** statt „[Monat JJJJ]“: Los 2 (Firewall, Switches, APs) und Los 3 = 01.11.2027, Los 1 = 01.12.2028 (nur die 3 Standard-Lizenzen ab 06/2027), Netzwerk Apartments 05/2029 bzw. nach Ablöse.
+3. **Bindefrist**: 90 Tage reichen nicht. Preisgarantie bis Übergang verlangen bzw. Preise für Los 1 ab 12/2028 als Richtpreis.
 4. **Hinweis zu Mietgeräten** präzisieren: Welche Hardware geht zurück und wann? Das bestimmt die Einmalkosten bei Los 2.
 5. **Variante B für Los 3 als bevorzugte Lösung** formulieren (Server ablösen) und Kosten für die Migration auf Entra ID / Intune als Festpreis abfragen.
 6. **Reaktionszeiten hotelgerecht definieren**: Priorität 1 auch am Wochenende, unabhängig von der Anzahl betroffener Personen (genau die Lücke im aobis-Vertrag, siehe `aobis-leistungsbeschreibung-client.md`).

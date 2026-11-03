@@ -20,6 +20,6 @@ Sortiert nach Kündigungstermin:
 ## Auffälligkeiten
 - **Telefonie verlängert sich um 24 Monate.** Wird der 31.01.2028 verpasst, läuft sie bis 30.04.2030.
 - **WLAN-Erweiterung hat 6 Monate Frist.** Das ist der zweite Termin schon im April 2027, leicht zu übersehen.
-- **Zwei Verträge sind neu (2025/2026)** und binden Netzwerk/Hardware bis Ende 2028 bzw. 04/2029. Was genau in „Hardwaresetup Optimierung / MBIT“ und „Netzwerk-Infrastruktur Apartments“ steckt (Firewall? Switches? APs? Miete?), ist **offen**.
-- Das **Managed Service Paket „Client“** (Arbeitsplätze, Benutzer) und die **E-Mail-Sicherheit** tauchen in der Übersicht nicht als eigener Vertrag auf. Zuordnung **offen** (vermutlich in 440 oder 1371).
+- **Laut Rechnung** (siehe `kosten-ist.md`): Der Firewall-Cluster (360 €) läuft über 1172. Client-Betreuung, M365 Business Premium und E-Mail-Sicherheit laufen über 1371 (MBIT) bis 11/2028. Vertrag 440 umfasst nur die 3 Business-Standard-Lizenzen.
+- **1514 (Netzwerk Apartments) erscheint nicht auf den Monatsrechnungen.** Inhalt und Kosten sind **offen**.
 - Laufzeiten und Fristen stammen aus der Übersicht, nicht aus den Vertragstexten. Vor der Kündigung im Vertrag prüfen, ob die Frist „zum Laufzeitende“ gilt.
