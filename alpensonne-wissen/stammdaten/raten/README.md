@@ -23,9 +23,9 @@
 ## Aktionsrabatte (Stand 02.11.2026, gepflegt im Raten-Cockpit)
 | Kanal | Rate | Rabatt | Hinweis |
 |---|---|---|---|
-| Website (DIRS21 IBE) | Apartment Standard | 14 % | Direktbuchung, immer günstigster Preis |
+| Website (DIRS21 IBE) | Apartment Standard inkl. NonRef | 14,9 % | Direktbuchung, immer günstigster Preis (bestätigt 03.11.2026) |
 | Website (DIRS21 IBE) | Paket Frühstück & Wellness | 19 % | Direktbuchung Paket |
-| Booking / OTAs | OTA Standard (MLS 2 N.) + NonRef | 20 % | Late Escape Deal, Aufenthalt 01.10.2026–07.01.2027 |
+| Booking.com, Expedia, Check24 | OTA Standard (MLS 2 N.) + NonRef | 20 % | Late Escape, Aufenthalt 01.10.2026–07.01.2027; Expedia/Check24 ab 03.11.2026 |
 | Booking / OTAs | OTA-Paket Frühstück & Wellness | 25 % | Late Escape Deal, Aufenthalt 01.10.2026–07.01.2027 |
 
-Rabatte sind untereinander nicht kombinierbar, nur mit Genius (10–15 %). Regel: Das Paket muss nach Rabatt immer teurer sein als die Standardrate (Preischeck in der Matrix, z. B. 07 / 2 Pers. / 3–6 N.: direkt 224 € vs. 243 €, OTA 231 € vs. 252 €).
+Rabatte sind untereinander nicht kombinierbar, nur mit Genius (10–15 %, nur Apartments, nicht Hotelzimmer). Regel: Das Paket muss nach Rabatt immer teurer sein als die Standardrate (Preischeck in der Matrix, z. B. 07 / 2 Pers. / 3–6 N.: direkt 224 € vs. 243 €, OTA 231 € vs. 252 €). Achtung: Der Matrix-Preischeck rechnet direkt noch mit 14 %; mit 14,9 % sind es 221,26 € statt 224 €.

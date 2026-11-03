@@ -236,7 +236,7 @@ const M = {"hotel":{"hs":{"01 Einzelzimmer Balkon":{"1":[140.0,150.0,133.0,143.0
 
 /* ---------- Grunddaten ---------- */
 const KANAELE_DIREKT = ["Website / IBE","Telefon / E-Mail"];
-const KANAELE_OTA = ["Booking.com","Expedia","HRS","Airbnb","Sonstige OTA"];
+const KANAELE_OTA = ["Booking.com","Expedia","Check24","HRS","Airbnb","Sonstige OTA"];
 const KANAL_GRUPPEN = ["Alle Kanäle","Alle OTAs","Direkt (alle)"];
 const ALL_KANAELE = [...KANAELE_DIREKT,...KANAELE_OTA];
 const MAX_STAMM = {"01":1,"02":2,"03":2,"04":3,"05":3,"06":4,"07":2,"08":4,"09":null};
@@ -564,8 +564,8 @@ function renderRaten(){
     "Apartment 2 Nächte: Es gibt noch keinen eigenen 2-Nächte-Ratenplan in ibelsa.",
     "Ratencodes in ibelsa/DIRS21 und Ratennamen je OTA fehlen noch (außer HHS/HNS).",
     "ASI-Rate und Feuer & Eis: Zielgruppe und Buchungsweg sind nicht dokumentiert.",
-    "Website-Rabatt Nebensaison (14 % / 19 %): Gilt er auch für NonRef? Und für welchen Aufenthaltszeitraum genau?",
-    "Late Escape läuft laut Matrix auf „Booking / OTAs“: Gilt er nur auf Booking.com oder auch auf Expedia & Co.?",
+    "Website-Rabatt Nebensaison (14,9 % / 19 %): Für welchen Aufenthaltszeitraum genau? Eingetragen sind 01.11.–24.12.2026 und 04.01.–25.03.2027.",
+    "Late Escape auf Expedia und Check24: Wird dort auch das OTA-Paket rabattiert (25 %)?",
   ];
   $("konflikte").replaceChildren(el("ul",{style:"margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px"}, K.map(x=>el("li",{},x))));
 }
