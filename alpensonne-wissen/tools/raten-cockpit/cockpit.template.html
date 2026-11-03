@@ -288,7 +288,7 @@ function nightPrices(kat, pax, s, nights){
 }
 
 /* ---------- Aktionen ---------- */
-let AKT = []; let canWrite = false; let db = null;
+let AKT = []; let canWrite = false; let canEdit = false; let db = null;
 function kanalPasst(akKanal, kanal){
   if (akKanal==="Alle Kanäle") return true;
   if (akKanal==="Alle OTAs") return isOTA(kanal);
@@ -366,7 +366,7 @@ function card(a){
       a.bedingungen ? [el("dt",{},"Bedingung"), el("dd",{}, a.bedingungen)] : null,
       a.verantwortlich ? [el("dt",{},"Ansprechpartner"), el("dd",{}, a.verantwortlich)] : null),
     a.erkennung ? el("div",{class:"ibelsa"}, el("b",{},"So erkennst du sie in ibelsa"), a.erkennung) : el("div",{class:"ibelsa"}, el("b",{},"So erkennst du sie in ibelsa"), el("span",{class:"pill warn"},"noch nicht beschrieben")),
-    canWrite ? el("div",{class:"row"}, el("button",{class:"ghost", type:"button", onclick:()=>openForm(a)}, "Bearbeiten")) : null
+    canEdit ? el("div",{class:"row"}, el("button",{class:"ghost", type:"button", onclick:()=>openForm(a)}, "Bearbeiten")) : null
   );
 }
 function renderAktionen(){
@@ -379,7 +379,7 @@ function renderAktionen(){
     ["archiv","Archiv",null],
   ];
   const box = $("aktGroups"); box.replaceChildren();
-  if (!AKT.length && dbReady){ box.append(el("div",{class:"empty"}, "Noch keine Aktionen eingetragen. ", canWrite ? "Über „Aktion eintragen“ legst du die erste an." : "Revenue trägt hier jede Kampagne ein, bevor sie live geht.")); return; }
+  if (!AKT.length && dbReady){ box.append(el("div",{class:"empty"}, "Noch keine Aktionen eingetragen. ", canEdit ? "Über „Aktion eintragen“ legst du die erste an." : "Revenue trägt hier jede Kampagne ein, bevor sie live geht.")); return; }
   for (const [key,label,hint] of groups){
     const items = list.filter(a=>phase(a,STICHTAG)===key).sort((x,y)=>(x.buchbar_bis||"9").localeCompare(y.buchbar_bis||"9"));
     if (!items.length && key!=="live") continue;
@@ -601,8 +601,8 @@ function renderRaetsel(){
         r.ist!=null?[el("dt",{},"Tatsächlich"),el("dd",{},eur(r.ist)+(diff!=null?" ("+(diff>0?"+":"")+eur(diff)+")":""))]:null,
         el("dt",{},"Gemeldet"), el("dd",{}, r.gemeldet?de(r.gemeldet.slice(0,10)):"")),
       r.text?el("p",{style:"margin:0"}, r.text):null,
-      r.antwort && !canWrite ? el("div",{class:"ibelsa"}, el("b",{},"Erklärung"), r.antwort) : null,
-      canWrite ? el("div",{class:"ra-item"}, answer, el("div",{class:"row"},
+      r.antwort && !canEdit ? el("div",{class:"ibelsa"}, el("b",{},"Erklärung"), r.antwort) : null,
+      canEdit ? el("div",{class:"ra-item"}, answer, el("div",{class:"row"},
         el("button",{type:"button", class:"primary", onclick: async ()=>{ try{ await db.collection("raetsel").doc(r._id).update({antwort:answer.value.trim(), status:"geklaert"}); }catch(err){ answer.after(el("span",{class:"status-line"},"Nicht gespeichert: "+(err?.message||err))); } }}, r.status==="offen"?"Als geklärt markieren":"Antwort speichern"),
         r.status!=="offen" ? el("button",{type:"button", class:"ghost", onclick: async ()=>{ try{ await db.collection("raetsel").doc(r._id).update({status:"offen"}); }catch{} }}, "Wieder öffnen") : null)) : null
     );
@@ -620,7 +620,9 @@ renderSeason(); renderFilter(); renderRaten(); setupPreis(); setupRaetsel(); rou
     if (!db){ $("aktStatus").textContent = "Die Aktionsliste ist nur angemeldet über claude.ai erreichbar. Preis prüfen und Spickzettel funktionieren trotzdem."; $("raStatus").textContent = "Melden ist nur angemeldet möglich."; return; }
     const w = user ? await user.can("data.write") : null;
     canWrite = w !== false;
-    $("btnNeu").hidden = !canWrite; $("raForm").hidden = !canWrite;
+    canEdit = user ? (await user.canEdit()) === true : false;
+    $("btnNeu").hidden = !canEdit; $("raForm").hidden = !canWrite;
+    if (!canWrite) $("raStatus").before(el("p",{class:"status-line"},"Melden ist mit Lesezugang nicht möglich. Bitte Preis-Rätsel direkt an Benno geben."));
     const t1 = setTimeout(()=>{ $("aktStatus").textContent = "Die Aktionsliste antwortet gerade nicht. Angezeigtes kann veraltet sein."; }, 10000);
     db.collection("aktionen").onSnapshot(snap => {
       AKT = snap.docs.map(d => ({...d.data(), _id:d.id}));
