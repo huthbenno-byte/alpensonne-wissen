@@ -1,5 +1,5 @@
 # Offen
 
 - [ ] 
-- [ ] Budget-Anzeige nach Livegang mit einem echten Monat gegen die Excel „Ist 2027“ gegenprüfen (Logis netto ibelsa vs. Budget-Basis).
+- [ ] Später: Budget-Prozent auf Logis netto umstellen (Budget enthält nur Logis, Ist im Dashboard inkl. Nebenleistungen → Prozent derzeit zu hoch).
 - [ ] budget.json jährlich ergänzen (Budget 2028).
