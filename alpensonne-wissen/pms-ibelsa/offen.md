@@ -1,4 +1,4 @@
 # Offen
 
 - [ ] 
-- [x] "Gäste max." in ibelsa höher als Stammdaten: bewusst so, geklärt 09.11.2026 (siehe entscheidungen.md)
+- [x] "Gäste max." in ibelsa höher als Stammdaten: bewusst so, ibelsa nicht führend, geklärt 09.11.2026 (siehe entscheidungen.md)

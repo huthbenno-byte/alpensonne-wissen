@@ -2,6 +2,7 @@
 # Eine Kategorie = ein Eintrag. Codes entsprechen den ibelsa-Kategorienamen.
 # status: bestaetigt = von Benno bestätigt | website = von der Website übernommen, noch nicht bestätigt | konflikt = Quellen widersprechen sich
 # Stand: 2026-11-09
+# max_personen ist führend (Grundregel laut Bennos Zimmer-/Ausstattungsliste). ibelsa_gaeste_max ist nur die interne Obergrenze für Sonderfälle und wird nie nach außen kommuniziert.
 # Zimmerbestand (ibelsa, 09.11.2026): Hotel 51 Zimmer (01–06), Apartments 24 Einheiten (07–09), gesamt 75
 # hunde: erlaubt/nicht erlaubt je Kategorie liefert Benno in der Stammdatenliste nach
 
@@ -10,7 +11,7 @@ hotel:
     name: Einzelzimmer Balkon
     ibelsa_kurzname: "01 EZB"
     zimmer_anzahl: 3   # ibelsa-Screenshot 09.11.2026, bestaetigt
-    ibelsa_gaeste_max: 1   # bewusst höher als max_personen: Spielraum der Rezeption für Sonderfälle (+1 Person/Kind auf Gästewunsch). Maßgeblich für Gäste, Website, OTAs ist max_personen.
+    ibelsa_gaeste_max: 1   # nur intern, NICHT führend: Spielraum der Rezeption für Sonderfälle. Führend ist max_personen.
     groesse_m2: [13, 17]
     max_personen: 1
     bad: Kleines Bad mit Dusche/WC
@@ -23,7 +24,7 @@ hotel:
     name: Doppelzimmer Mini
     ibelsa_kurzname: "02 DZM"
     zimmer_anzahl: 13   # ibelsa-Screenshot 09.11.2026, bestaetigt
-    ibelsa_gaeste_max: 2   # bewusst höher als max_personen: Spielraum der Rezeption für Sonderfälle (+1 Person/Kind auf Gästewunsch). Maßgeblich für Gäste, Website, OTAs ist max_personen.
+    ibelsa_gaeste_max: 2   # nur intern, NICHT führend: Spielraum der Rezeption für Sonderfälle. Führend ist max_personen.
     groesse_m2: [13, 17]
     max_personen: 2
     bad: Kleines Bad mit Dusche/WC
@@ -36,7 +37,7 @@ hotel:
     name: Doppelzimmer
     ibelsa_kurzname: "03 DZ"
     zimmer_anzahl: 12   # ibelsa-Screenshot 09.11.2026, bestaetigt
-    ibelsa_gaeste_max: 3   # bewusst höher als max_personen: Spielraum der Rezeption für Sonderfälle (+1 Person/Kind auf Gästewunsch). Maßgeblich für Gäste, Website, OTAs ist max_personen.
+    ibelsa_gaeste_max: 3   # nur intern, NICHT führend: Spielraum der Rezeption für Sonderfälle. Führend ist max_personen.
     groesse_m2: [17, 21]
     max_personen: 2
     bad: Kleines Bad mit Dusche/WC
@@ -48,7 +49,7 @@ hotel:
     name: Doppelzimmer Balkon
     ibelsa_kurzname: "04 DZB"
     zimmer_anzahl: 17   # ibelsa-Screenshot 09.11.2026, bestaetigt
-    ibelsa_gaeste_max: 4   # bewusst höher als max_personen: Spielraum der Rezeption für Sonderfälle (+1 Person/Kind auf Gästewunsch). Maßgeblich für Gäste, Website, OTAs ist max_personen.
+    ibelsa_gaeste_max: 4   # nur intern, NICHT führend: Spielraum der Rezeption für Sonderfälle. Führend ist max_personen.
     groesse_m2: [20, 30]
     max_personen: 3   # bestätigt 27.10.2026
     bad: Kleines Bad mit Dusche/WC
@@ -61,7 +62,7 @@ hotel:
     name: Junior Apartment
     ibelsa_kurzname: "05 JAP"
     zimmer_anzahl: 3   # ibelsa-Screenshot 09.11.2026, bestaetigt
-    ibelsa_gaeste_max: 5   # bewusst höher als max_personen: Spielraum der Rezeption für Sonderfälle (+1 Person/Kind auf Gästewunsch). Maßgeblich für Gäste, Website, OTAs ist max_personen.
+    ibelsa_gaeste_max: 5   # nur intern, NICHT führend: Spielraum der Rezeption für Sonderfälle. Führend ist max_personen.
     groesse_m2: [50, 55]
     max_personen: 3   # bestätigt 27.10.2026; Website-Detailtext (4) ist falsch
     bad: Bad mit Regendusche/WC
@@ -74,7 +75,7 @@ hotel:
     name: Apartment
     ibelsa_kurzname: "06 APP"
     zimmer_anzahl: 3   # ibelsa-Screenshot 09.11.2026, bestaetigt
-    ibelsa_gaeste_max: 6   # bewusst höher als max_personen: Spielraum der Rezeption für Sonderfälle (+1 Person/Kind auf Gästewunsch). Maßgeblich für Gäste, Website, OTAs ist max_personen.
+    ibelsa_gaeste_max: 6   # nur intern, NICHT führend: Spielraum der Rezeption für Sonderfälle. Führend ist max_personen.
     groesse_m2: [60, 65]
     max_personen: 4
     bad: Bad mit Regendusche/WC
@@ -88,7 +89,7 @@ apartments:   # Alpensonne Apartments, Haus A (Ludwig-Thoma-Str. 7a) und Haus B 
     name: 1-Zimmer-Apartment
     ibelsa_kurzname: "07 APP1"
     zimmer_anzahl: 10   # ibelsa-Screenshot 09.11.2026, bestaetigt
-    ibelsa_gaeste_max: 4   # bewusst höher als max_personen: Spielraum der Rezeption für Sonderfälle (+1 Person/Kind auf Gästewunsch). Maßgeblich für Gäste, Website, OTAs ist max_personen.
+    ibelsa_gaeste_max: 4   # nur intern, NICHT führend: Spielraum der Rezeption für Sonderfälle. Führend ist max_personen.
     ibelsa_name: "07 Apartment 1 Zimmer"
     groesse_m2: 65
     max_personen: 2
@@ -105,7 +106,7 @@ apartments:   # Alpensonne Apartments, Haus A (Ludwig-Thoma-Str. 7a) und Haus B 
     name: 1-Zimmer-Maisonette
     ibelsa_kurzname: "08 APPM"
     zimmer_anzahl: 10   # ibelsa-Screenshot 09.11.2026, bestaetigt
-    ibelsa_gaeste_max: 4   # bewusst höher als max_personen: Spielraum der Rezeption für Sonderfälle (+1 Person/Kind auf Gästewunsch). Maßgeblich für Gäste, Website, OTAs ist max_personen.
+    ibelsa_gaeste_max: 4   # nur intern, NICHT führend: Spielraum der Rezeption für Sonderfälle. Führend ist max_personen.
     ibelsa_name: "08 Apartment 1 Zimmer Maisonette"
     groesse_m2: 73
     max_personen: 4
@@ -121,7 +122,7 @@ apartments:   # Alpensonne Apartments, Haus A (Ludwig-Thoma-Str. 7a) und Haus B 
     name: 2-Zimmer-Apartment
     ibelsa_kurzname: "09 APP2"
     zimmer_anzahl: 4   # ibelsa-Screenshot 09.11.2026, bestaetigt
-    ibelsa_gaeste_max: 6   # bewusst höher als max_personen: Spielraum der Rezeption für Sonderfälle (+1 Person/Kind auf Gästewunsch). Maßgeblich für Gäste, Website, OTAs ist max_personen.
+    ibelsa_gaeste_max: 6   # nur intern, NICHT führend: Spielraum der Rezeption für Sonderfälle. Führend ist max_personen.
     ibelsa_name: "09 Apartment 2 Zimmer"
     groesse_m2: 90
     max_personen: offen   # abhängig von der Belegung; Benno klärt intern (Startseite "2–6 Personen" ist falsch)
