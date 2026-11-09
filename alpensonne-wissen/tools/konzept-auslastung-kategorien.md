@@ -2,7 +2,7 @@
 
 **Ziel:** Entscheidungsgrundlage für die Renovierung. Welche Kategorien sind am besten ausgelastet, und wo fehlen Zimmer?
 **Umsetzung in:** Repo `alpensonne-reporting`, neuer Tab "Kategorien" im Auslastungsbericht
-**Stand:** 09.11.2026, Konzept. Umsetzung offen, weil das Reporting-Repo noch nicht in der Session war.
+**Stand:** 09.11.2026, umgesetzt in `alpensonne-reporting` (Branch `claude/friendly-rubin-l7kgp1`, noch nicht auf main/live): Modul `reports/auslastung_kategorien.py`, Tabs "Kategorien" und "Kategorien je Monat".
 
 ## Grundsatz
 Hotel (01–06) und Apartments (07–09) werden **immer getrennt** ausgewertet: eigene Tabelle, eigene Summenzeile. Keine gemeinsame Gesamtsumme.
