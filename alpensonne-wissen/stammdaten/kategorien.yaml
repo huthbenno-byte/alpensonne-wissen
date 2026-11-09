@@ -1,12 +1,16 @@
 # Zimmer- und Apartmentkategorien – Alpensonne Tegernsee
 # Eine Kategorie = ein Eintrag. Codes entsprechen den ibelsa-Kategorienamen.
 # status: bestaetigt = von Benno bestätigt | website = von der Website übernommen, noch nicht bestätigt | konflikt = Quellen widersprechen sich
-# Stand: 2026-10-27
+# Stand: 2026-11-09
+# Zimmerbestand (ibelsa, 09.11.2026): Hotel 51 Zimmer (01–06), Apartments 24 Einheiten (07–09), gesamt 75
 # hunde: erlaubt/nicht erlaubt je Kategorie liefert Benno in der Stammdatenliste nach
 
 hotel:
   - code: "01"
     name: Einzelzimmer Balkon
+    ibelsa_kurzname: "01 EZB"
+    zimmer_anzahl: 3   # ibelsa-Screenshot 09.11.2026, bestaetigt
+    ibelsa_gaeste_max: 1   # Wert aus ibelsa (Stand 09.11.2026), siehe max_personen
     groesse_m2: [13, 17]
     max_personen: 1
     bad: Kleines Bad mit Dusche/WC
@@ -17,6 +21,9 @@ hotel:
 
   - code: "02"
     name: Doppelzimmer Mini
+    ibelsa_kurzname: "02 DZM"
+    zimmer_anzahl: 13   # ibelsa-Screenshot 09.11.2026, bestaetigt
+    ibelsa_gaeste_max: 2   # Wert aus ibelsa (Stand 09.11.2026), siehe max_personen
     groesse_m2: [13, 17]
     max_personen: 2
     bad: Kleines Bad mit Dusche/WC
@@ -27,6 +34,9 @@ hotel:
 
   - code: "03"
     name: Doppelzimmer
+    ibelsa_kurzname: "03 DZ"
+    zimmer_anzahl: 12   # ibelsa-Screenshot 09.11.2026, bestaetigt
+    ibelsa_gaeste_max: 3   # Wert aus ibelsa (Stand 09.11.2026), siehe max_personen
     groesse_m2: [17, 21]
     max_personen: 2
     bad: Kleines Bad mit Dusche/WC
@@ -36,6 +46,9 @@ hotel:
 
   - code: "04"
     name: Doppelzimmer Balkon
+    ibelsa_kurzname: "04 DZB"
+    zimmer_anzahl: 17   # ibelsa-Screenshot 09.11.2026, bestaetigt
+    ibelsa_gaeste_max: 4   # Wert aus ibelsa (Stand 09.11.2026), siehe max_personen
     groesse_m2: [20, 30]
     max_personen: 3   # bestätigt 27.10.2026
     bad: Kleines Bad mit Dusche/WC
@@ -46,6 +59,9 @@ hotel:
 
   - code: "05"
     name: Junior Apartment
+    ibelsa_kurzname: "05 JAP"
+    zimmer_anzahl: 3   # ibelsa-Screenshot 09.11.2026, bestaetigt
+    ibelsa_gaeste_max: 5   # Wert aus ibelsa (Stand 09.11.2026), siehe max_personen
     groesse_m2: [50, 55]
     max_personen: 3   # bestätigt 27.10.2026; Website-Detailtext (4) ist falsch
     bad: Bad mit Regendusche/WC
@@ -56,6 +72,9 @@ hotel:
 
   - code: "06"
     name: Apartment
+    ibelsa_kurzname: "06 APP"
+    zimmer_anzahl: 3   # ibelsa-Screenshot 09.11.2026, bestaetigt
+    ibelsa_gaeste_max: 6   # Wert aus ibelsa (Stand 09.11.2026), siehe max_personen
     groesse_m2: [60, 65]
     max_personen: 4
     bad: Bad mit Regendusche/WC
@@ -67,6 +86,9 @@ hotel:
 apartments:   # Alpensonne Apartments, Haus A (Ludwig-Thoma-Str. 7a) und Haus B (7b), eröffnet 2026
   - code: "07"
     name: 1-Zimmer-Apartment
+    ibelsa_kurzname: "07 APP1"
+    zimmer_anzahl: 10   # ibelsa-Screenshot 09.11.2026, bestaetigt
+    ibelsa_gaeste_max: 4   # Wert aus ibelsa (Stand 09.11.2026), siehe max_personen
     ibelsa_name: "07 Apartment 1 Zimmer"
     groesse_m2: 65
     max_personen: 2
@@ -81,6 +103,9 @@ apartments:   # Alpensonne Apartments, Haus A (Ludwig-Thoma-Str. 7a) und Haus B 
 
   - code: "08"
     name: 1-Zimmer-Maisonette
+    ibelsa_kurzname: "08 APPM"
+    zimmer_anzahl: 10   # ibelsa-Screenshot 09.11.2026, bestaetigt
+    ibelsa_gaeste_max: 4   # Wert aus ibelsa (Stand 09.11.2026), siehe max_personen
     ibelsa_name: "08 Apartment 1 Zimmer Maisonette"
     groesse_m2: 73
     max_personen: 4
@@ -94,6 +119,9 @@ apartments:   # Alpensonne Apartments, Haus A (Ludwig-Thoma-Str. 7a) und Haus B 
 
   - code: "09"
     name: 2-Zimmer-Apartment
+    ibelsa_kurzname: "09 APP2"
+    zimmer_anzahl: 4   # ibelsa-Screenshot 09.11.2026, bestaetigt
+    ibelsa_gaeste_max: 6   # Wert aus ibelsa (Stand 09.11.2026), siehe max_personen
     ibelsa_name: "09 Apartment 2 Zimmer"
     groesse_m2: 90
     max_personen: offen   # abhängig von der Belegung; Benno klärt intern (Startseite "2–6 Personen" ist falsch)
