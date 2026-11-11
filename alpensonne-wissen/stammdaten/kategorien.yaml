@@ -1,7 +1,7 @@
 # Zimmer- und Apartmentkategorien – Alpensonne Tegernsee
 # Eine Kategorie = ein Eintrag. Codes entsprechen den ibelsa-Kategorienamen.
 # status: bestaetigt = von Benno bestätigt | website = von der Website übernommen, noch nicht bestätigt | konflikt = Quellen widersprechen sich
-# Stand: 2026-10-27
+# Stand: 2026-11-11
 # hunde: erlaubt/nicht erlaubt je Kategorie liefert Benno in der Stammdatenliste nach
 
 hotel:
@@ -96,7 +96,8 @@ apartments:   # Alpensonne Apartments, Haus A (Ludwig-Thoma-Str. 7a) und Haus B 
     name: 2-Zimmer-Apartment
     ibelsa_name: "09 Apartment 2 Zimmer"
     groesse_m2: 90
-    max_personen: offen   # abhängig von der Belegung; Benno klärt intern (Startseite "2–6 Personen" ist falsch)
+    max_personen: 6   # bestätigt 11.11.2026: max. 4 Erwachsene + 2 Kinder (Startseite "2–6 Personen" prüfen)
+    max_erwachsene: 4
     schlafzimmer: 2
     bad: Bad mit Regendusche/WC
     balkon: überdacht
